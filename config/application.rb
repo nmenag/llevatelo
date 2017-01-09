@@ -18,8 +18,13 @@ Bundler.require(*Rails.groups)
 
 module Llevatelo
   class Application < Rails::Application
-    config.generators.assets = false
-    config.generators.helper = false
+    config.generators do |generator|
+      generator.view_specs false
+      generator.controller_specs false
+      generator.assets  false
+      generator.helper  false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
