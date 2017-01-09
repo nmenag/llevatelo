@@ -28,5 +28,26 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  context 'db' do
+    context 'columns' do
+      it { should have_db_column(:email).of_type(:string).with_options(default: "", null: false) }
+      it { should have_db_column(:encrypted_password).of_type(:string).with_options(default: "", null: false) }
+      it { should have_db_column(:reset_password_token).of_type(:string) }
+      it { should have_db_column(:reset_password_sent_at).of_type(:datetime) }
+      it { should have_db_column(:remember_created_at).of_type(:datetime) }
+      it { should have_db_column(:current_sign_in_at).of_type(:datetime) }
+      it { should have_db_column(:last_sign_in_at).of_type(:datetime) }
+      it { should have_db_column(:current_sign_in_ip).of_type(:string) }
+      it { should have_db_column(:last_sign_in_ip).of_type(:string) }
+      it { should have_db_column(:status).of_type(:boolean).with_options(default: false, null: false) }
+      it { should have_db_column(:role).of_type(:integer).with_options(null: false) }
+      it { should have_db_column(:phone).of_type(:string).with_options(null: false) }
+    end
+
+    context 'indexes' do
+      it { should have_db_index(:email).unique(true) }
+      it { should have_db_index(:reset_password_token).unique(true) }
+    end
+  end
 end
