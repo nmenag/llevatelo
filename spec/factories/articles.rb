@@ -21,6 +21,12 @@
 
 FactoryGirl.define do
   factory :article do
-    
+    name { Faker::Commerce.product_name }
+    description { Faker::Lorem.sentence }
+    location { Faker::Address.city }
+    status { true }
+    type { Article.types[:gift] }
+    association :user, factory: :user
+    association :category, factory: :category
   end
 end

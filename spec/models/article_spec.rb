@@ -42,4 +42,19 @@ RSpec.describe Article, type: :model do
     it { should belong_to(:category) }
     it { should have_many(:favorites).dependent(:destroy) }
   end
+
+  context 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_length_of(:name).is_at_most(100) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:location) }
+    it { should validate_presence_of(:type) }
+    it { should define_enum_for(:type).with([:gift, :want, :barter]) }
+    it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:category) }
+  end
+
+  it 'has a valid factory' do
+    expect(build(:article)).to be_valid
+  end
 end

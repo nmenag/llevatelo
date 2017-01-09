@@ -22,5 +22,10 @@
 class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :favorites, dependent: :destroy 
+  has_many :favorites, dependent: :destroy
+
+  validates :name, :description, :location, :type, :user, :category, presence: true
+  validates_length_of :name, maximum: 100
+
+  enum type: [:gift, :want, :barter]
 end

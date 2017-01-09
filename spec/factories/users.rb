@@ -27,6 +27,10 @@
 
 FactoryGirl.define do
   factory :user do
-    
+    email { Faker::Internet.email }
+    password { 'llevatelo123' }
+    password_confirmation { 'llevatelo123' }
+    role { 1 }
+    phone { Faker::Number.number(10) }
   end
 end
