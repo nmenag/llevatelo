@@ -11,10 +11,12 @@
 #  user_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  category_id :integer
 #
 # Indexes
 #
-#  index_articles_on_user_id  (user_id)
+#  index_articles_on_category_id  (category_id)
+#  index_articles_on_user_id      (user_id)
 #
 
 require 'rails_helper'
@@ -31,6 +33,7 @@ RSpec.describe Article, type: :model do
 
     context 'indexes' do
       it { should have_db_index(:user_id) }
+      it { should have_db_index(:category_id) }
     end
   end
 end
