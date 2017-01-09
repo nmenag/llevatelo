@@ -13,7 +13,7 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     # Choose a test framework:
     with.test_framework :rspec
-    
+
     # Choose one or more libraries:
     with.library :active_record
     with.library :active_model
@@ -74,7 +74,8 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with :truncation, except: [ActiveRecord::InternalMetadata.table_name]
+    # DatabaseCleaner.clean_with(:truncation)
   end
 
   config.around(:each) do |example|
