@@ -50,4 +50,9 @@ RSpec.describe User, type: :model do
       it { should have_db_index(:reset_password_token).unique(true) }
     end
   end
+
+  context 'associations' do
+    it { should have_many(:favorites).dependent(:destroy) }
+    it { should have_many(:articles).dependent(:destroy) }
+  end
 end

@@ -18,4 +18,8 @@ RSpec.describe Category, type: :model do
       it { should have_db_column(:status).of_type(:boolean).with_options(default: false, null: false) }
     end
   end
+
+  context 'associations' do
+    it { should have_many(:articles) }
+  end
 end

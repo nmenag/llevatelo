@@ -36,4 +36,10 @@ RSpec.describe Article, type: :model do
       it { should have_db_index(:category_id) }
     end
   end
+
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should belong_to(:category) }
+    it { should have_many(:favorites).dependent(:destroy) }
+  end
 end

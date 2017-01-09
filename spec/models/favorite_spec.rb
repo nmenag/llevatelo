@@ -23,4 +23,9 @@ RSpec.describe Favorite, type: :model do
       it { should have_db_index(:user_id) }
     end
   end
+
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should belong_to(:article) }
+  end
 end
