@@ -55,4 +55,15 @@ RSpec.describe User, type: :model do
     it { should have_many(:favorites).dependent(:destroy) }
     it { should have_many(:articles).dependent(:destroy) }
   end
+
+  context 'validations' do
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:role) }
+    it { should define_enum_for(:role).with([:superadmin, :user]) }
+    it { should validate_presence_of(:phone) }
+  end
+
+  it 'has a valid factory' do
+    expect(build(:user)).to be_valid
+  end
 end

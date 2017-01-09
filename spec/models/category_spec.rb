@@ -22,4 +22,12 @@ RSpec.describe Category, type: :model do
   context 'associations' do
     it { should have_many(:articles) }
   end
+
+  context 'validations' do
+    it { should validate_presence_of(:name) }
+  end
+
+  it 'has a valid factory' do
+    expect(build(:category)).to be_valid
+  end
 end
