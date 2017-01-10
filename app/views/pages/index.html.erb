@@ -1,39 +1,4 @@
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="intro-text">
-          <div class="job-form-box">
-            <h2 class="heading">Encuentre el articulo que necesite</h2>
-            <form id="search-form" method="get" action="#" class="search-form">
-              <div class="controls">
-                <div class="row">
-                  <div class="col-sm-5">
-                    <div class="form-group">
-                      <label for="profession">Articulo</label>
-                      <input type="text" id="article" name="article" placeholder="Articulo que estas buscando" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="form-group">
-                      <label for="location">Categoria</label>
-                      <input type="text" id="category" name="category" placeholder="¿alguna categoria?" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-sm-2">
-                    <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-
+<%= render 'shared/header' %>
 <%= render 'articles' %>
 <%= render 'about' %>
 <%= render 'layouts/footer' %>
