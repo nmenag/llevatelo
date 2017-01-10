@@ -1,0 +1,28 @@
+<div class="container login-form">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Ingresar</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Registro</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<%= render 'sessions/sign_in_form' %>
+                <%= render 'sessions/register_form' %>
+                <%= render "devise/shared/links" %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
