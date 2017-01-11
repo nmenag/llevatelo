@@ -27,4 +27,16 @@ RSpec.feature "Pages", type: :feature do
       expect(page).to have_css('a.btn-outline', text: 'Ver mas')
     end
   end
+
+  scenario 'should return login page' do
+    visit root_path
+    find('.sign-in a').click
+    expect(current_path).to eq new_user_session_path
+  end
+
+  scenario 'should return articles index' do
+    visit root_path
+    find('a.btn-outline').click
+    expect(current_path).to eq articles_path
+  end
 end
