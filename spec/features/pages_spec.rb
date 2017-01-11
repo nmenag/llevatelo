@@ -34,9 +34,15 @@ RSpec.feature "Pages", type: :feature do
     expect(current_path).to eq new_user_session_path
   end
 
-  scenario 'should return articles index' do
+  scenario 'should return articles index page' do
     visit root_path
     find('a.btn-outline').click
     expect(current_path).to eq articles_path
+  end
+
+  scenario 'should return about page' do
+    visit root_path
+    find('a', text: 'Acerca de').click
+    expect(current_path).to eq about_pages_path
   end
 end
