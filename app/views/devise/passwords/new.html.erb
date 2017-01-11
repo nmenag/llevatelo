@@ -1,16 +1,36 @@
-<h2>Forgot your password?</h2>
+<div class="container login-form">
+  <div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+  		<div class="panel panel-login">
+  			<div class="panel-heading">
+  				<div class="row">
+  					<h4>¿Olvidaste tu contraseña?</h4>
+  				</div>
+  				<hr>
+  			</div>
+  			<div class="panel-body">
+  				<div class="row">
+  					<div class="col-lg-12">
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="form-group">
+                  <%= f.email_field :email, autofocus: true, class: 'form-control',  placeholder: 'Correo electronico' %>
+                </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <%= f.submit 'Enviar', class: "form-control btn btn-login"  %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+              <%= render "devise/shared/links" %>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+	</div>
+</div>
