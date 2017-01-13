@@ -1,0 +1,4 @@
+## Customize CircleCI setup
+machine:
+  environment:
+    CODECLIMATE_REPO_TOKEN: 6811687d58a8121162038a260002a46ae1837a8e2dbe5aa5103c32196568aa34

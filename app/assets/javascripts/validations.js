@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   $('#new_user').validate({
     rules: {
      'user[email]': 'required',
@@ -9,4 +9,4 @@ $(function(){
       'user[password]': 'Ingresa tu contraseña'
     },
   });
-});
+})
