@@ -54,6 +54,8 @@ group :test do
   gem 'capybara', '~> 2.7', '>= 2.7.1'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'capybara-webkit', '~> 1.11', '>= 1.11.1'
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 group :development do
