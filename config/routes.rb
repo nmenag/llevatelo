@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :pages, only:[] do
     get :about, on: :collection
   end
-  
-  devise_for :users
+
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
   resources :articles
 end
