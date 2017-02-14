@@ -37,5 +37,13 @@ class User < ApplicationRecord
 
   validates :email, :role, :phone, presence: true
 
-  enum role: [:superadmin, :user]
+  enum role: [:superadmin, :registered]
+
+  after_initialize :set_default_role
+
+  private
+
+  def set_default_role
+    self.role ||= :registered
+  end
 end

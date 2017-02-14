@@ -59,11 +59,18 @@ RSpec.describe User, type: :model do
   context 'validations' do
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:role) }
-    it { should define_enum_for(:role).with([:superadmin, :user]) }
+    it { should define_enum_for(:role).with([:superadmin, :registered]) }
     it { should validate_presence_of(:phone) }
   end
 
   it 'has a valid factory' do
     expect(build(:user)).to be_valid
+  end
+
+  describe 'set_default_role' do
+    it 'should be initialized with role registered' do
+      user = User.new
+      expect(user.registered?).to eq true
+    end
   end
 end

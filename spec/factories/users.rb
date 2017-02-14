@@ -30,7 +30,8 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password { 'llevatelo123' }
     password_confirmation { 'llevatelo123' }
-    role { User.roles[:user] }
+    role { User.roles[:registered] }
     phone { Faker::Number.number(10) }
+
   end
 end
