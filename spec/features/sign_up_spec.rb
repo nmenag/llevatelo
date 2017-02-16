@@ -31,13 +31,45 @@ RSpec.feature "SignUp", type: :feature do
 
 
   context 'register user', js: true do
-    scenario 'when all the input is empty' do
+    scenario 'with all the inputs empty' do
       form_register
-      save_and_open_page
       expect(page).to have_selector '#user_email-error'
       expect(page).to have_selector '#user_phone-error'
       expect(page).to have_selector '#user_password-error'
       expect(page).to have_selector '#user_password_confirmation-error'
+    end
+
+    scenario 'with valid input' do
+      user = build(:user)
+      password = Faker::Internet.password
+
+      expect{
+        form_register(
+          email: user.email,
+          phone: user.phone,
+          password:password,
+          password_confirmation: password
+        )
+      }.to change(User, :count).by 1
+
+      last_user = User.last
+      expect(last_user.email).to eq user.email
+      expect(last_user.phone).to eq user.phone
+      expect(current_path).to eq root_path
+    end
+
+    scenario 'when the user exist' do
+      user = create(:user)
+      password = Faker::Internet.password
+
+      form_register(
+        email: user.email,
+        phone: user.phone,
+        password:password,
+        password_confirmation: password
+      )
+
+      expect(page).to have_selector '#error_explanation'
     end
   end
 end
