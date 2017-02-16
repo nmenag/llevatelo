@@ -28,4 +28,25 @@ RSpec.feature "SignUp", type: :feature do
     all('.panel-body a').last.click
     expect(current_path).to eq new_user_password_path
   end
+
+
+  context 'register user', js: true do
+    scenario 'when all the input is empty' do
+      form_register
+      save_and_open_page
+      expect(page).to have_selector '#user_email-error'
+      expect(page).to have_selector '#user_phone-error'
+      expect(page).to have_selector '#user_password-error'
+      expect(page).to have_selector '#user_password_confirmation-error'
+    end
+  end
+end
+
+def form_register(opts={})
+  visit new_user_registration_path
+  fill_in 'user_email', with: opts[:email]
+  fill_in 'user_phone', with: opts[:phone]
+  fill_in 'user_password', with: opts[:password]
+  fill_in 'user_password_confirmation', with: opts[:password_confirmation]
+  click_button "Registrarse"
 end

@@ -53,7 +53,7 @@ group :test do
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
-  gem 'capybara-webkit', '~> 1.11', '>= 1.11.1'
+  gem 'poltergeist'
   gem "simplecov"
   gem "codeclimate-test-reporter", "~> 1.0.0"
 end
