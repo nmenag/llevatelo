@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   resources :articles
+
+  get 'my_articles' => 'articles#my_articles'
 end
