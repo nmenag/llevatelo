@@ -16,7 +16,7 @@ RSpec.feature "Pages", type: :feature do
     within :css, '.intro-text' do
       expect(page).to have_css('h2.heading', text: "¡Encuentre el articulo que necesite!")
       expect(page).to have_css('#search-form')
-      expect(page).to have_css('.form-group', count: 2)
+      expect(page).to have_css('.form-group', count: 1)
       expect(page).to have_css('.btn.btn-primary')
     end
 

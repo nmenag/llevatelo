@@ -7,6 +7,7 @@
 	a:focus {
 		outline: none;
 	}
+
 	.navbar-brand {
 		color: white;
 		&:hover, &:focus, &:active, &.active {
@@ -22,10 +23,6 @@
 				&:hover {
 					color: $theme-success;
 					outline: none;
-				}
-				&:focus,
-				&:active {
-					color: white;
 				}
 			}
 			&.active {
@@ -44,6 +41,7 @@
 			border: 1px solid white;
 		}
 	}
+
 	.navbar-toggle {
 		color: white;
 		text-transform: uppercase;

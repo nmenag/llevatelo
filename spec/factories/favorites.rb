@@ -14,6 +14,7 @@
 #  index_favorites_on_user_id     (user_id)
 #
 
+
 FactoryGirl.define do
   factory :favorite do
     association :user, factory: :user

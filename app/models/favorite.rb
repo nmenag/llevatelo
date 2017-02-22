@@ -14,6 +14,7 @@
 #  index_favorites_on_user_id     (user_id)
 #
 
+
 class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :article

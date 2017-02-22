@@ -1,73 +1,28 @@
 <div class="articles-listing">
-  <!-- article 1 -->
-  <div class="row">
-    <div class="col-sm-12 col-md-10">
-      <div class="row">
-        <div class="col-xs-2"><img src="http://placehold.it/800x500" class="img-responsive"></div>
-        <div class="col-xs-10">
-          <h5><a href="#">Article 1</a></h5>
-          <span class="label label-success">Disponible</span>
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+  <% @articles.each do |article| %>
+    <div class="row">
+      <div class="col-sm-12 col-md-10">
+        <div class="row">
+          <div class="col-xs-2"><img src="http://placehold.it/800x500" class="img-responsive"></div>
+          <div class="col-xs-10">
+            <h5><a href="#"><%= article.name %></a></h5>
+            <span class="label label-success"><%= article.reserved? ? 'Reservado' : 'Disponible' %></span>
+            <p class=""><%= article.description %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-md-1">
+        <div>
+          <%= link_to '<i class="glyphicon glyphicon-edit"></i>'.html_safe, edit_article_path(article), class: 'size-32' %>
+        </div>
+      </div>
+
+      <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-md-1">
+        <div>
+          <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),  data: { confirm: 'Esta seguro?' }, method: :delete, class: 'size-32' %>
         </div>
       </div>
     </div>
-
-    <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-md-1">
-      <div>
-        <a href="#" class="size-32">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-md-1">
-      <div>
-        <a href="#" class="size-32">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
-      </div>
-    </div>
-  </div><!-- end article-->
-
-  <!-- article 2 -->
-  <div class="row">
-    <div class="col-sm-12 col-md-10">
-      <div class="row">
-        <div class="col-xs-2"><img src="http://placehold.it/800x500" class="img-responsive"></div>
-        <div class="col-xs-10">
-          <h5><a href="#">Article 1</a></h5>
-          <span class="label label-success">Disponible</span>
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-md-1">
-      <div>
-        <a href="#" class="size-32">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-xs-10 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-md-1">
-      <div>
-        <a href="#" class="size-32">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
-      </div>
-    </div>
-  </div><!-- end article-->
+  <% end %>
 </div>

@@ -6,8 +6,8 @@
 #  name        :string(100)      not null
 #  description :text             not null
 #  location    :string           not null
-#  status      :boolean          default(FALSE), not null
-#  type        :integer          not null
+#  status      :integer
+#  offer_type  :integer          not null
 #  user_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -19,6 +19,7 @@
 #  index_articles_on_user_id      (user_id)
 #
 
+
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
@@ -27,8 +28,8 @@ RSpec.describe Article, type: :model do
       it { should have_db_column(:name).of_type(:string).with_options(null: false, limit: 100) }
       it { should have_db_column(:description).of_type(:text).with_options(null: false) }
       it { should have_db_column(:location).of_type(:string).with_options(null: false) }
-      it { should have_db_column(:status).of_type(:boolean).with_options(default: false, null: false) }
-      it { should have_db_column(:type).of_type(:integer).with_options(null: false) }
+      it { should have_db_column(:status).of_type(:integer) }
+      it { should have_db_column(:offer_type).of_type(:integer).with_options(null: false) }
     end
 
     context 'indexes' do
@@ -48,10 +49,10 @@ RSpec.describe Article, type: :model do
     it { should validate_length_of(:name).is_at_most(100) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:location) }
-    it { should validate_presence_of(:type) }
-    it { should define_enum_for(:type).with([:gift, :want, :barter]) }
+    it { should validate_presence_of(:offer_type) }
+    it { should define_enum_for(:offer_type).with([:gift, :want, :barter]) }
+    it { should define_enum_for(:status).with([:reserved, :available]) }
     it { should validate_presence_of(:user) }
-    it { should validate_presence_of(:category) }
   end
 
   it 'has a valid factory' do

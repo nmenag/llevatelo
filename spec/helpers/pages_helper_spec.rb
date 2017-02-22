@@ -11,12 +11,4 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PagesHelper, type: :helper do
-  describe "generate_list(enum) method" do
-    it "should return a array" do
-      enum = {"gift"=> 0, "want"=> 1, "barter"=> 2}
-      method = helper.generate_list(Article.types)
-      expect(method.class).to eq Array
-      expect(method).to eq [['gift', 'gift'],['want', 'want'],['barter', 'barter']]
-    end
-  end
 end

@@ -3,9 +3,8 @@
     <h2>Mis Articulos</h2>
 
     <div class="col-lg-8 col-lg-offset-2 text-center">
-      <a class="btn btn-lg btn-outline" href="#">
-        <i class="glyphicon glyphicon-plus"></i> Agregar nuevo producto
-      </a>
+      <%= link_to '<i class="glyphicon glyphicon-plus"></i> Agregar nuevo producto'.html_safe, new_article_path,
+      class: 'btn btn-lg btn-outline' %>
     </div>
   </div>
 

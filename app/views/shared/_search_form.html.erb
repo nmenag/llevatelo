@@ -7,12 +7,6 @@
           <input type="text" id="article" name="article" placeholder="Articulo que estas buscando" class="form-control">
         </div>
       </div>
-      <div class="col-sm-5">
-        <div class="form-group">
-          <label for="location">Categoria</label>
-          <%= select_tag('type', options_for_select(generate_list(Article.types)), class: "form-control") %>
-        </div>
-      </div>
       <div class="col-sm-2">
         <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
       </div>

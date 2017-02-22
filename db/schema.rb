@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20170109012638) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "name",        limit: 100,                 null: false
-    t.text     "description",                             null: false
-    t.string   "location",                                null: false
-    t.boolean  "status",                  default: false, null: false
-    t.integer  "type",                                    null: false
-    t.integer  "user_id",                                 null: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "name",        limit: 100, null: false
+    t.text     "description",             null: false
+    t.string   "location",                null: false
+    t.integer  "status"
+    t.integer  "offer_type",              null: false
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "category_id"
     t.index ["category_id"], name: "index_articles_on_category_id", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
