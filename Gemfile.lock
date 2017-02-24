@@ -58,6 +58,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     cliver (0.3.2)
     codeclimate-test-reporter (1.0.4)
       simplecov
@@ -236,6 +240,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   byebug
   capybara (~> 2.7, >= 2.7.1)
+  carrierwave (~> 1.0)
   codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5, >= 1.5.3)
