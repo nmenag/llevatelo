@@ -1,11 +1,13 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:my_articles]
+  before_action :authenticate_user!
 
   def index
   end
 
   def my_articles
-    @articles = current_user.articles
+    @gifts = current_user.articles.find_all{|a| a.gift? }
+    @wants = current_user.articles.find_all{|a| a.want? }
+    @barters = current_user.articles.find_all{|a| a.barter? }
   end
 
   def new
@@ -43,7 +45,7 @@ class ArticlesController < ApplicationController
     if @article.destroy
       flash[:notice] = "Se ha eliminado el  articulo #{@article.name}"
     else
-      flash[:notice] = "no se pudo eliminar articulo #{@article.name}" 
+      flash[:notice] = "no se pudo eliminar articulo #{@article.name}"
     end
 
     redirect_to my_articles_path
