@@ -14,6 +14,12 @@
   padding-bottom: 10px;
   border-bottom: solid 1px #eee;
   margin-bottom: 20px;
+  .img-responsive {
+    max-width: 85px;
+    max-height: 85px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
 }
 
 .my-articles{
