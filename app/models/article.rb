@@ -23,6 +23,8 @@
 
 
 class Article < ApplicationRecord
+  mount_uploader :photo, ImageArticleUploader
+
   belongs_to :user
   belongs_to :category, optional: true
   has_many :favorites, dependent: :destroy
