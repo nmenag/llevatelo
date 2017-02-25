@@ -14,17 +14,12 @@ RSpec.feature "Pages", type: :feature do
     end
 
     within :css, '.intro-text' do
-      expect(page).to have_css('h2.heading', text: "¡Encuentre el articulo que necesite!")
-      expect(page).to have_css('#search-form')
-      expect(page).to have_css('.form-group', count: 1)
-      expect(page).to have_css('.btn.btn-primary')
+      expect(page).to have_css('h2.heading')
     end
 
     within :css, '#articles' do
-      expect(page).to have_selector('h2.title', text: 'Articulos destacados')
+      expect(page).to have_selector('h2.title', text: 'Articulos')
       expect(page).to have_css('.star-primary')
-      expect(page).to have_css('.hero-feature', count: 4)
-      expect(page).to have_css('a.btn-outline', text: 'Ver mas')
     end
   end
 
