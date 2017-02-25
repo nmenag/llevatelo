@@ -220,6 +220,11 @@ es:
       short: "%d de %b %H:%M"
     pm: pm
 
+  #offer type
   gift: Regalo
   want: Necesito
   barter: Trueque
+
+  #status of article
+  available: Disponible
+  reserved: Reservado

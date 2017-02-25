@@ -29,6 +29,12 @@ header {
   .caption{
     font-size: 16 px;
   }
+	.thumbnail{
+		img {
+			height: 180px;
+			width: 100%;
+		}
+	}
   .details{
     i {
       margin-right: 5px;

@@ -3,82 +3,34 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="title">Articulos destacados</h2>
+        <h2 class="title">Articulos</h2>
         <hr class="star-primary">
       </div>
     </div>
     <!-- Page Features -->
     <div class="row text-center">
-      <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h4>Name Article</h4>
-            <p class="details">
-              <i class="fa fa-map-marker"></i>San Francisco
-              <span class="label label-success">Disponible</span>
-            </p>
+    <% Article.all.each do |article| %>
+        <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+            <%= image_tag(article.photo) %>
+            <div class="caption">
+              <h4><%= article.name %></h4>
+              <p class="details">
+                <!-- <i class="fa fa-map-marker"></i>San Francisco -->
+                <i class="fa fa-phone"></i><%= article.user.phone %>
+                <span class="label <%= article.available? ? 'label-success' : 'label-default' %>"><%= text_location(article.status) %></span>
+              </p>
 
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
+              <p class="description">
+                <%= article.description %>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h4>Name Article</h4>
-            <p class="details">
-              <i class="fa fa-map-marker"></i>San Francisco
-              <span class="label label-success">Disponible</span>
-            </p>
-
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h4>Name Article</h4>
-            <p class="details">
-              <i class="fa fa-map-marker"></i>San Francisco
-              <span class="label label-success">Disponible</span>
-            </p>
-
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h4>Name Article</h4>
-            <p class="details">
-              <i class="fa fa-map-marker"></i>San Francisco
-              <span class="label label-success">Disponible</span>
-            </p>
-
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </p>
-          </div>
-        </div>
-      </div>
+    <% end %>
     </div><!-- end row-->
-    <div class="col-lg-8 col-lg-offset-2 text-center">
+    <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
       <%= link_to 'Ver mas', articles_path, class: "btn btn-lg btn-outline" %>
-    </div>
+    </div> -->
   </div>
 </section>
