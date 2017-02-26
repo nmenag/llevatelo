@@ -14,21 +14,27 @@ module ApplicationHelper
   end
 
   def bootstrap_class_for(flash_type)
-    hash_class_bootrap = { success: 'alert-success', error: 'alert-danger', alert: 'alert-warning', notice: 'alert-info' }
+    hash_class_bootrap = { success: 'success', error: 'danger', alert: 'warning', notice: 'info' }
     hash_class_bootrap[flash_type.to_sym] || flash_type.to_s
   end
 
   def flash_messages(opts = {})
     flash.each do |msg_type, message|
-      concat(content_tag(:div, message, class: "col-xs-11 col-sm-4 alert #{bootstrap_class_for(msg_type)} fade in") do
-        concat content_tag(
-          :button, 'x', class: "close", data: { dismiss: 'alert' })
-            concat message
-          end
-        )
+      concat(
+        content_tag(:div, message, class: "col-xs-11 col-sm-4 alert alert-#{bootstrap_class_for(msg_type)} fade in") do
+          concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
+          concat message
+        end
+      )
     end
     nil
   end
 
-
+  def badge_offer_type_button(offer_type)
+    hash_class = {gift: 'warning', want: 'danger', barter: 'primary' }
+    content_tag(:span, class: "btn btn-#{hash_class[offer_type.to_sym]}") do
+      concat text_location(offer_type)
+    end
+  end
+  
 end

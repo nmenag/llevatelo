@@ -11,19 +11,23 @@
     <div class="row text-center">
     <% Article.all.each do |article| %>
         <div class="col-md-3 col-sm-6 hero-feature">
-          <div class="thumbnail">
-            <%= image_tag(article.photo) %>
-            <div class="caption">
-              <h4><%= article.name %></h4>
-              <p class="details">
-                <!-- <i class="fa fa-map-marker"></i>San Francisco -->
-                <i class="fa fa-phone"></i><%= article.user.phone %>
-                <span class="label <%= article.available? ? 'label-success' : 'label-default' %>"><%= text_location(article.status) %></span>
-              </p>
-
-              <p class="description">
-                <%= article.description %>
-              </p>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="thumbnail">
+                <%= image_tag(article.photo) %>
+              </div>
+              <div class="caption">
+                <h4><%= article.name %>
+                <%= badge_offer_type_button(article.offer_type) %>
+                </h4>
+                <p class="details">
+                  <i class="fa fa-phone"></i><%= article.user.phone %>
+                  <span class="label <%= article.available? ? 'label-success' : 'label-default' %>"><%= text_location(article.status) %></span>
+                </p>
+                <p class="description">
+                  <%= article.description %>
+                </p>
+              </div>
             </div>
           </div>
         </div>
