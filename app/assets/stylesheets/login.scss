@@ -1,6 +1,9 @@
-.login-form {
+.login-form, .article-form {
   padding-top: 100px;
   padding-bottom: 50px;
+  .btn-register{
+    margin-top: 20px;
+  }
 }
 
 body {
