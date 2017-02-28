@@ -9,8 +9,8 @@
     </div>
     <!-- Page Features -->
     <div class="row text-center">
-    <% Article.all.each do |article| %>
-        <div class="col-md-3 col-sm-6 hero-feature">
+      <% Article.all.each do |article| %>
+        <div class="col-md-3 col-sm-6">
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="thumbnail">
@@ -31,7 +31,7 @@
             </div>
           </div>
         </div>
-    <% end %>
+      <% end %>
     </div><!-- end row-->
     <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
       <%= link_to 'Ver mas', articles_path, class: "btn btn-lg btn-outline" %>
