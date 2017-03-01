@@ -24,11 +24,17 @@
                   <i class="fa fa-phone"></i><%= article.user.phone %>
                   <span class="label <%= article.available? ? 'label-success' : 'label-default' %>"><%= text_location(article.status) %></span>
                 </p>
+
+                <p class="details">
+                  <i class="fa fa-envelope-open"></i><%= article.user.email %>
+                </p>
+
                 <p class="description">
                   <%= article.description %>
                 </p>
               </div>
             </div>
+            <div class="panel-footer">Actualizado <%= time_ago_in_words(article.updated_at) %></div>
           </div>
         </div>
       <% end %>

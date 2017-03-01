@@ -10,7 +10,6 @@ unless Rails.env.test?
       :aws_secret_access_key => ENV['S3_SECRET'],
       :region                => ENV['S3_REGION']
       # host:                  's3.example.com',             # optional, defaults to nil
-      # endpoint:              'nmenag-quincename.s3-website-us-west-2.amazonaws.com' # optional, defaults to nil
     }
 
     if Rails.env.test? || Rails.env.cucumber?

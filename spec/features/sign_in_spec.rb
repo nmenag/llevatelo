@@ -63,7 +63,7 @@ RSpec.feature "SignIn", type: :feature do
       expect(current_path).to eq root_path
 
       within :css, '.dropdown' do
-        expect(page).to have_content user.email
+        expect(page).to have_content user.email.split('@')[0]
       end
 
       within :css, '.dropdown-menu' do
