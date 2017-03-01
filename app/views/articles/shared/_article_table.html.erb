@@ -1,27 +1,31 @@
 <div class="articles-listing">
-  <table class="table table-striped table-bordered table-list">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% articles.each do |article| %>
+  <% if articles.present? %>
+    <table class="table table-striped table-bordered table-list">
+      <thead>
         <tr>
-          <td style='width: 10%;'><%= image_tag article.photo, class: 'img-responsive' %></td>
-          <td style='width: 10%;'><%= article.name %></td>
-          <td><p style='width: 90%;'>
-            <%= article.description %></p>
-          </td>
-          <td align="center" style='width: 10%;'>
-            <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_article_path(article), class: 'btn btn-default' %>
-            <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),  data: { confirm: 'Esta seguro?' }, method: :delete, class: 'btn btn-danger' %>
-          </td>
+          <th></th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% articles.each do |article| %>
+          <tr>
+            <td style='width: 10%;'><%= image_tag article.photo, class: 'img-responsive' %></td>
+            <td style='width: 10%;'><%= article.name %></td>
+            <td><p style='width: 90%;'>
+              <%= article.description %></p>
+            </td>
+            <td align="center" style='width: 10%;'>
+              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_article_path(article), class: 'btn btn-default' %>
+              <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),  data: { confirm: 'Esta seguro?' }, method: :delete, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h3 class='empty-article'>No tienes ningun producto todavía</h3>
+  <% end %>
 </div>
