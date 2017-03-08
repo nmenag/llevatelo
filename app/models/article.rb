@@ -22,6 +22,7 @@
 
 
 
+
 class Article < ApplicationRecord
   mount_uploader :photo, ImageArticleUploader
 

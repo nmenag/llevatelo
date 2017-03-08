@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get :about, on: :collection
   end
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  devise_for :users, :controllers => { registrations: 'users/registrations', confirmations: 'users/confirmations' }
   resources :articles
 
   get 'my_articles' => 'articles#my_articles'

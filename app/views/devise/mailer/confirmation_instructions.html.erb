@@ -1,5 +1,11 @@
-<p>Welcome <%= @email %>!</p>
+<p>Bienvenido <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Por favor confirme su cuenta, haciendo  clic en el siguiente enlace: </p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Saludos,</p>
+<p style="box-sizing: border-box; margin: 0;">
+  <%= link_to 'Llevaterlo.co', root_url %>
+</p>
+<br style="box-sizing: border-box;">

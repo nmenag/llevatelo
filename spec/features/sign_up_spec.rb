@@ -19,16 +19,21 @@ RSpec.feature "SignUp", type: :feature do
 
   scenario 'should display sign in form' do
     visit new_user_registration_path
-    all('.panel-body a').first.click
+    all('.panel-body a')[0].click
     expect(current_path).to eq new_user_session_path
   end
 
   scenario 'should display reset password form' do
     visit new_user_registration_path
-    all('.panel-body a').last.click
+    all('.panel-body a')[1].click
     expect(current_path).to eq new_user_password_path
   end
 
+  scenario 'should display resend email of confirmation form' do
+    visit new_user_session_path
+    all('.panel-body a')[2].click
+    expect(current_path).to eq new_user_confirmation_path
+  end
 
   context 'register user', js: true do
     scenario 'with all the inputs empty' do

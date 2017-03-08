@@ -20,14 +20,20 @@ RSpec.feature "SignIn", type: :feature do
 
   scenario 'should display register form' do
     visit new_user_session_path
-    all('.panel-body a').first.click
+    all('.panel-body a')[0].click
     expect(current_path).to eq new_user_registration_path
   end
 
   scenario 'should display reset password form' do
     visit new_user_session_path
-    all('.panel-body a').last.click
+    all('.panel-body a')[1].click
     expect(current_path).to eq new_user_password_path
+  end
+
+  scenario 'should display resend email of confirmation form' do
+    visit new_user_session_path
+    all('.panel-body a')[2].click
+    expect(current_path).to eq new_user_confirmation_path
   end
 
   context 'login' do
