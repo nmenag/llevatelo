@@ -25,7 +25,7 @@
     "SENDGRID_USERNAME":{
       "required": true
     },
-    "SENDGRID_PASSWORD":{
+    "SENDGRID_PASSWORD": {
       "required": true
     },
     "RAILS_LOG_TO_STDOUT": {
