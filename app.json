@@ -19,6 +19,15 @@
     "RAILS_ENV": {
       "required": true
     },
+    "HOSTNAME": {
+      "required": true
+    },
+    "SENDGRID_USERNAME":{
+      "required": true
+    },
+    "SENDGRID_PASSWORD":{
+      "required": true
+    },
     "RAILS_LOG_TO_STDOUT": {
       "required": true
     },
