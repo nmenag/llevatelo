@@ -1,6 +1,7 @@
 {
   "name": "llevatelo",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
     "AWS_ACCESS_KEY_ID": {
