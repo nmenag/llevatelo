@@ -1,11 +1,20 @@
 .articles {
-  padding-top: 100px;
+  padding-top: 70px;
   padding-bottom: 50px;
 
   .date-info{
     font-size: 14px;
   }
+
+  .contact-info {
+    font-size: 18px
+  }
+
+  .caption-full {
+    padding: 20px;
+  }
 }
+
 
 .articles-listing {
   border: solid 1px #eee;
