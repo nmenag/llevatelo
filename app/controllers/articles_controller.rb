@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
     @barters = current_user.articles.find_all{|a| a.barter? }
   end
 
+  def show
+    @article  = Article.find(params[:id])
+  end
+
   def new
     @article = Article.new
     render :form

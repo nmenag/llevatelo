@@ -11,7 +11,7 @@
     <div class="row text-center list-articles">
       <% Article.all.each do |article| %>
         <div class="col-md-3 col-sm-6">
-          <%= link_to '#' do %>
+          <%= link_to article_path(article) do %>
             <div class="thumbnail">
               <%= image_tag(article.photo) %>
               <div class="caption">
