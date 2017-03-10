@@ -8,34 +8,25 @@
       </div>
     </div>
     <!-- Page Features -->
-    <div class="row text-center">
+    <div class="row text-center list-articles">
       <% Article.all.each do |article| %>
         <div class="col-md-3 col-sm-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="thumbnail">
-                <%= image_tag(article.photo) %>
-              </div>
+          <%= link_to '#' do %>
+            <div class="thumbnail">
+              <%= image_tag(article.photo) %>
               <div class="caption">
-                <h4><%= article.name %>
-                <%= badge_offer_type_button(article.offer_type) %>
-                </h4>
-                <p class="details">
-                  <i class="fa fa-phone"></i><%= article.user.phone %>
-                  <span class="label <%= article.available? ? 'label-success' : 'label-default' %>"><%= text_location(article.status) %></span>
-                </p>
-
-                <p class="details">
-                  <i class="fa fa-envelope-open"></i><%= article.user.email %>
-                </p>
-
-                <p class="description">
-                  <%= article.description %>
+                <h4 class="pull-right"><%= text_location(article.status) %></h4>
+                <h4>First Product</h4>
+                <p><%= article.description %></p>
+              </div>
+              <div class="ratings">
+                <p class="pull-right"></p>
+                <p>
+                  <span><%= badge_offer_type_button(article.offer_type) %></span>
                 </p>
               </div>
             </div>
-            <div class="panel-footer">Actualizado <%= time_ago_in_words(article.updated_at) %></div>
-          </div>
+          <% end %>
         </div>
       <% end %>
     </div><!-- end row-->
