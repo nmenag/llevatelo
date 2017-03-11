@@ -3,6 +3,9 @@
     <div class="col-md-9">
       <div class="thumbnail">
         <h2><%= @article.name %></h2>
+        <div class='time-ago'>
+          <i class="fa fa-clock-o"></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
+        </div>
         <%= image_tag @article.photo, class: 'img-responsive'  %>
         <div class="caption-full">
           <h4 class="pull-right"><%= text_location(@article.status) %></h4>
