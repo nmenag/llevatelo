@@ -4,9 +4,6 @@
 	text-transform: uppercase;
 	font-weight: 700;
 	border: none;
-	a:focus {
-		outline: none;
-	}
 
 	.navbar-brand {
 		color: white;
@@ -22,17 +19,10 @@
 				color: white;
 				&:hover {
 					color: $theme-success;
-					outline: none;
 				}
-			}
-			&.active {
-				a {
-					color: white;
-					background: $theme-success;
-					&:hover, &:focus, &:active {
-						color: white;
-						background: $theme-success;
-					}
+				&:focus {
+					color: $gray;
+					background: $gray-lighter;
 				}
 			}
 		}
