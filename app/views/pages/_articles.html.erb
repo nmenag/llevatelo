@@ -16,8 +16,8 @@
               <%= image_tag(article.photo) %>
               <div class="caption">
                 <h4 class="pull-right"><%= text_location(article.status) %></h4>
-                <h4>First Product</h4>
-                <p><%= article.description %></p>
+                <h4><%= article.name %></h4>
+                <p><%= truncate(article.description, length: 100) %></p>
               </div>
               <div class="ratings">
                 <p class="pull-right"></p>

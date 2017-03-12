@@ -18,10 +18,6 @@ header {
 			font-weight: 700;
 			font-size: 2em;
 		}
-		.skills {
-			font-size: 1.25em;
-			font-weight: 300;
-		}
 	}
 }
 
@@ -48,6 +44,7 @@ header {
 	}
 
 	.thumbnail {
+		height: 350px;
 		img {
 			height: 180px;
 			width: 100%;

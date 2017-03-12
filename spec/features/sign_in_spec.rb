@@ -11,7 +11,7 @@ RSpec.feature "SignIn", type: :feature do
       expect(page).to have_css('.panel-heading h4', text: "Ingresar")
       expect(page).to have_css('.new_user')
       expect(page).to have_css('.form-group', count: 3)
-      expect(page).to have_css('.btn-login')
+      expect(page).to have_css('.btn-info')
     end
 
     expect(page).to have_css('.panel-body a', text: 'Registrarse')

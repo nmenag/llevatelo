@@ -1,14 +1,8 @@
 .login-form, .article-form {
   padding-top: 100px;
   padding-bottom: 50px;
-  .btn-register{
-    margin-top: 20px;
-  }
 }
 
-body {
-  padding-top: 90px;
-}
 .panel-login {
 	border-color: #ccc;
 	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
@@ -61,23 +55,7 @@ body {
 	box-shadow: none;
 	border-color: #ccc;
 }
-.btn-login {
-	background-color: #59B2E0;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #59B2E6;
-}
-.btn-login:hover,
-.btn-login:focus {
-	color: #fff;
-	background-color: #53A3CD;
-	border-color: #53A3CD;
-}
+
 .forgot-password {
 	text-decoration: underline;
 	color: #888;
@@ -86,22 +64,4 @@ body {
 .forgot-password:focus {
 	text-decoration: underline;
 	color: #666;
-}
-
-.btn-register {
-	background-color: #1CB94E;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #1CB94A;
-}
-.btn-register:hover,
-.btn-register:focus {
-	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
 }

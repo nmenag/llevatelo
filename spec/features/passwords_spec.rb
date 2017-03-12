@@ -10,7 +10,7 @@ RSpec.feature "Passwords", type: :feature do
       expect(page).to have_css('.panel-heading h4', text: "¿Olvidaste tu contraseña?")
       expect(page).to have_css('.new_user')
       expect(page).to have_css('.form-group', count: 2)
-      expect(page).to have_css('.btn-login')
+      expect(page).to have_css('.btn-info')
     end
 
     expect(page).to have_css('.panel-body a', text: 'Iniciar Sesión')

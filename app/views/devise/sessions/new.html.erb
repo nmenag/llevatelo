@@ -16,7 +16,7 @@
                     <%- flash.each do |name, msg| -%>
                       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
                     <%- end -%>
-                    
+
                     <%= f.email_field :email, autofocus: true, class: 'form-control',  placeholder: 'Correo electronico' %>
                   </div>
 
@@ -34,7 +34,7 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <%= f.submit 'Ingresar', class: "form-control btn btn-login"  %>
+                        <%= f.submit 'Ingresar', class: "form-control btn btn-info"  %>
                       </div>
                     </div>
                   </div>

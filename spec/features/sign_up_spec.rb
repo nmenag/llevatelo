@@ -10,7 +10,7 @@ RSpec.feature "SignUp", type: :feature do
       expect(page).to have_css('.panel-heading h4', text: "Registro")
       expect(page).to have_css('.new_user')
       expect(page).to have_css('.form-group', count: 5)
-      expect(page).to have_css('.btn-register')
+      expect(page).to have_css('.btn-info')
     end
 
     expect(page).to have_css('.panel-body a', text: 'Iniciar Sesión')
