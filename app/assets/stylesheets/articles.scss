@@ -7,6 +7,8 @@
   }
 
   .contact-info {
+    background: $gray-lighter;
+    padding: 20px;
     font-size: 18px
   }
 
@@ -18,14 +20,13 @@
     margin-bottom: 20px;
     color: $gray-light;
   }
-  .thumbnail{
+  .thumbnail {
     .img-responsive {
       width: 100%;
       height: 350px;
     }
   }
 }
-
 
 .articles-listing {
   border: solid 1px #eee;

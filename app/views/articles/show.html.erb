@@ -3,36 +3,31 @@
     <div class="col-md-9">
       <div class="thumbnail">
         <h2><%= @article.name %></h2>
-        <div class='time-ago'>
-          <i class="fa fa-clock-o"></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
-        </div>
+        <span class='time-ago'>
+          <i class='fa fa-clock-o'></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
+        </span>
+        <h4 class="pull-right"><%= text_location(@article.status) %></h4>
+
         <%= image_tag @article.photo, class: 'img-responsive'  %>
         <div class="caption-full">
-          <h4 class="pull-right"><%= text_location(@article.status) %></h4>
-
           <p><%= @article.description %></p>
-        </div>
-        <div class="ratings">
-          <p>
-            <%= badge_offer_type_button(@article.offer_type) %>
-          </p>
         </div>
       </div>
     </div>
 
-    <div class="col-md-3">
-      <aside>
-        <div class="contact-info">
-          <div class="details">
-            <p class="name"><%= @article.user.email %></p>
-          </div>
-          <div class="phone">
-            <strong class="fa fa-phone"></strong>
-            <a href="javascript:void(0)"><%= @article.user.phone %></a>
-          </div>
+    <div class='col-md-3'>
+      <aside class='contact-info'>
+        <div class="details">
+          <p class="name"><%= @article.user.email %></p>
+        </div>
+        <div class="phone">
+          <strong class="fa fa-phone"></strong>
+          <a href="javascript:void(0)"><%= @article.user.phone %></a>
+        </div>
+        <div class="offer-type">
+          <p><%= badge_offer_type_button(@article.offer_type) %></p>
         </div>
       </aside>
     </div>
   </div>
-</div>
-    <!-- /.container -->
+</div> <!-- /.container -->
