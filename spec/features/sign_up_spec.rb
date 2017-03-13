@@ -40,8 +40,6 @@ RSpec.feature "SignUp", type: :feature do
       form_register
       expect(page).to have_selector '#user_email-error'
       expect(page).to have_selector '#user_phone-error'
-      expect(page).to have_selector '#user_password-error'
-      expect(page).to have_selector '#user_password_confirmation-error'
     end
 
     scenario 'with valid input' do

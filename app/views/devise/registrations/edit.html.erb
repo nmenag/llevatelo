@@ -8,45 +8,35 @@
         </div>
         <div class="panel-body">
           <div class="row">
-						<div class="col-lg-12">
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= devise_error_messages! %>
-                <div class="form-group">
-                  <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo electronico" %>
-                </div>
+            <div class="col-md-3 col-lg-3 " align="center">
+              <%= image_tag 'cover.png', class: 'img-circle img-responsive' %>
+              <%= link_to 'Cambiar imagen', '#' %>
+            </div>
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Correo electrónico: </td>
+                    <td><a href="#"><%= current_user.email %></a></td>
+                  </tr>
 
-                <div class="form-group">
-                  <%= f.text_field :phone, class: "form-control", placeholder: "Telefono" %>
-                </div>
+                  <tr>
+                    <td>Telefono:</td>
+                    <td><%= current_user.phone %></td>
+                  </tr>
+                </tbody>
+              </table>
 
-                <div class="form-group">
-                  <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña" %>
-                  <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> caracteres minimo)</em>
-                  <% end %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar contraseña"  %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Contraseña Actual"  %>
-                  <em>Necesitamos su contraseña actual para confirmar los cambios</em>
-                </div>
-
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                      <%= f.submit "Guardar Cambios", class: "form-control btn btn-info"  %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-						</div>
-					</div>
+              <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#editInfoModal">Editar datos</a>
+              <a href="#" data-toggle="modal" data-target="#editPasswordModal" class="btn btn-info">Cambiar Contraseña</a>
+              <!-- <a href="#" class="btn btn-danger">Eliminar Cuenta</a> -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= render 'devise/shared/edit_info_modal' %>
+<%= render 'devise/shared/edit_password_modal' %>

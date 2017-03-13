@@ -8,8 +8,8 @@ RSpec.feature "Pages", type: :feature do
     within :css, '.navbar' do
       expect(page).to have_css('a.navbar-brand', text: 'Llevatelo.co')
       expect(page).to have_css('.navbar-right')
-      expect(page).to have_css('.page-scroll', count: 3)
-      expect(page).to have_css('.page-scroll', text: 'Acerca de')
+      expect(page).to have_css('.navbar-right li', count: 2)
+      expect(page).to have_css('.navbar-right', text: 'Acerca de')
       expect(page).to have_css('.sign-in a', text: 'Login')
     end
 
@@ -28,12 +28,6 @@ RSpec.feature "Pages", type: :feature do
     find('.sign-in a').click
     expect(current_path).to eq new_user_session_path
   end
-
-  # scenario 'should return articles index page' do
-  #   visit root_path
-  #   find('a.btn-outline').click
-  #   expect(current_path).to eq articles_path
-  # end
 
   scenario 'should return about page' do
     visit root_path

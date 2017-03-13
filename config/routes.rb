@@ -13,4 +13,9 @@ Rails.application.routes.draw do
   resources :articles
 
   get 'my_articles' => 'articles#my_articles'
+
+  resources :password, only: [] do
+    get 'edit', on: :collection
+    patch 'update', on: :collection
+  end
 end

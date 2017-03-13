@@ -43,6 +43,10 @@ before_action :configure_account_update_params, only: [:update]
     params.require(:user).permit(:email, :phone, :password, :password_confirmation)
   end
 
+  def after_update_path_for(resource)
+    edit_user_registration_path
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -53,6 +57,10 @@ before_action :configure_account_update_params, only: [:update]
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:phone])
+  end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 
   # The path used after sign up.
