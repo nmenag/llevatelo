@@ -1,4 +1,7 @@
-@media(max-width:767px) {
+@media(max-width:768px) {
+	.page {
+		margin-top: 70px;
+	}
 	section {
 		padding: 75px 0;
 	}
@@ -14,10 +17,9 @@
   }
 }
 
-
 @media(min-width:768px) {
 	.page {
-		margin-top: 70px;
+		margin-top: 90px;
 	}
 
   header {
@@ -48,4 +50,8 @@
 	    font-size: 1.5em;
 	  }
 	}
+}
+
+@media screen and (max-width:320px) {
+	font-size: 12px;
 }

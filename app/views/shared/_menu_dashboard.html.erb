@@ -1,0 +1,11 @@
+<ul class="nav nav-pills">
+  <li role="presentation" class="<%= active_nav(my_articles_path) %>">
+    <%= link_to 'Mis publicaciones', my_articles_path  %>
+  </li>
+  <li role="presentation">
+    <a href="#">Mi Favoritos</a>
+  </li>
+  <li role="presentation" class="<%= active_nav(edit_user_registration_path) %>">
+    <%= link_to 'Mi Perfil', edit_user_registration_path %>
+  </li>
+</ul>
