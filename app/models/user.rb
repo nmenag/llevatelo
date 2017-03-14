@@ -21,6 +21,7 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
+#  picture                :string
 #
 # Indexes
 #
@@ -32,12 +33,12 @@
 
 
 
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-
 
   has_many :articles, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -47,6 +48,8 @@ class User < ApplicationRecord
   enum role: [:superadmin, :registered]
 
   after_initialize :set_default_role
+
+  mount_uploader :picture, ImageArticleUploader
 
   private
 

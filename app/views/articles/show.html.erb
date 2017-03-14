@@ -18,6 +18,10 @@
     <div class='col-md-3'>
       <aside class='contact-info'>
         <div class="details">
+          <p class="name"><%= image_tag @article.user.picture,  class: 'img-circle img-responsive' %></p>
+        </div>
+
+        <div class="details">
           <p class="name"><%= @article.user.email %></p>
         </div>
         <div class="phone">

@@ -23,6 +23,7 @@
 
 
 
+
 FactoryGirl.define do
   factory :article do
     name { Faker::Commerce.product_name }

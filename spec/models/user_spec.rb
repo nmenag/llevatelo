@@ -21,6 +21,7 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
+#  picture                :string
 #
 # Indexes
 #
@@ -28,6 +29,7 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
+
 
 
 
@@ -50,6 +52,7 @@ RSpec.describe User, type: :model do
       it { should have_db_column(:status).of_type(:boolean).with_options(default: false, null: false) }
       it { should have_db_column(:role).of_type(:integer).with_options(null: false) }
       it { should have_db_column(:phone).of_type(:string).with_options(null: false) }
+      it { should have_db_column(:picture).of_type(:string) }
     end
 
     context 'indexes' do
