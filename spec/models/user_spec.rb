@@ -63,8 +63,9 @@ RSpec.describe User, type: :model do
   end
 
   context 'associations' do
-    it { should have_many(:favorites).dependent(:destroy) }
+    it { should have_many(:favorites) }
     it { should have_many(:articles).dependent(:destroy) }
+    it { should have_many(:favorite_articles).through(:favorites).source(:favorited) }
   end
 
   context 'validations' do

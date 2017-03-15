@@ -6,21 +6,26 @@
           <th></th>
           <th>Nombre</th>
           <th>Descripción</th>
-          <th></th>
+          <% if editable %>
+            <th></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
         <% articles.each do |article| %>
           <tr>
             <td style='width: 10%;'><%= image_tag article.photo, class: 'img-responsive' %></td>
-            <td style='width: 10%;'><%= article.name %></td>
+            <td style='width: 10%;'><%= link_to article.name, article_path(article) %></td>
             <td><p style='width: 90%;'>
               <%= article.description %></p>
+
             </td>
-            <td align="center" style='width: 10%;'>
-              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_article_path(article), class: 'btn btn-default' %>
-              <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),  data: { confirm: 'Esta seguro?' }, method: :delete, class: 'btn btn-danger' %>
-            </td>
+            <% if editable %>
+              <td align="center" style='width: 10%;'>
+                <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_article_path(article), class: 'btn btn-default' %>
+                <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),  data: { confirm: 'Esta seguro?' }, method: :delete, class: 'btn btn-danger' %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

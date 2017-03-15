@@ -2,26 +2,22 @@
 #
 # Table name: favorites
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer          not null
-#  article_id :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  favorited_type :string
+#  favorited_id   :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 # Indexes
 #
-#  index_favorites_on_article_id  (article_id)
-#  index_favorites_on_user_id     (user_id)
+#  index_favorites_on_favorited_type_and_favorited_id  (favorited_type,favorited_id)
+#  index_favorites_on_user_id                          (user_id)
 #
-
-
-
-
-
 
 FactoryGirl.define do
   factory :favorite do
     association :user, factory: :user
-    association :article, factory: :article
+    association :favorited, factory: :article
   end
 end

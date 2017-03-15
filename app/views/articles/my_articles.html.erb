@@ -17,13 +17,13 @@
                 </ul>
             		<div class="tab-content ">
             		  <div class="tab-pane active" id="1">
-                    <%= render partial: 'articles/shared/article_table', locals: { articles: @gifts } %>
+                    <%= render partial: 'articles/shared/article_table', locals: { articles: @gifts, editable: true } %>
             			</div>
             			<div class="tab-pane" id="2">
-                    <%= render partial: 'articles/shared/article_table', locals: { articles: @wants }  %>
+                    <%= render partial: 'articles/shared/article_table', locals: { articles: @wants, editable: true }  %>
             			</div>
                   <div class="tab-pane" id="3">
-                    <%= render  partial: 'articles/shared/article_table', locals: { articles: @barters }  %>
+                    <%= render  partial: 'articles/shared/article_table', locals: { articles: @barters, editable: true }  %>
             			</div>
             		</div>
               </div>

@@ -19,10 +19,7 @@
                 <p><%= truncate(article.description, length: 100) %></p>
               </div>
               <div class="ratings">
-                <p class="pull-right"></p>
-                <p>
-                  <span><%= badge_offer_type_button(article.offer_type) %></span>
-                </p>
+                <p class="pull-right"><%= badge_offer_type_button(article.offer_type) %></p>
               </div>
             </div>
           <% end %>
