@@ -9,7 +9,7 @@
     </div>
     <!-- Page Features -->
     <div class="row text-center list-articles">
-      <% Article.all.each do |article| %>
+      <% Article.pusblish_articles(current_user).each do |article| %>
         <div class="col-md-4 col-sm-6">
           <%= link_to article_path(article) do %>
             <div class="thumbnail">

@@ -18,6 +18,7 @@
 
 
 
+
 FactoryGirl.define do
   factory :favorite do
     association :user, factory: :user
