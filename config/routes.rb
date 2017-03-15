@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     get 'edit', on: :collection
     patch 'update', on: :collection
   end
+
+  resources :favorites, only: [:create, :destroy]
+  get 'my_favorites' => 'favorites#my_favorites'
+  
 end

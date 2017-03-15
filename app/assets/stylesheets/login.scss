@@ -1,6 +1,10 @@
 .login-form, .article-form {
   padding-top: 100px;
   padding-bottom: 50px;
+  .back-link {
+    padding-bottom: 10px;
+    font-size: 18px;
+  }
 }
 
 .panel-login {

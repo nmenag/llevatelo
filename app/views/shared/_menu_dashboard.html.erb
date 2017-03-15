@@ -2,8 +2,8 @@
   <li role="presentation" class="<%= active_nav(my_articles_path) %>">
     <%= link_to 'Mis publicaciones', my_articles_path  %>
   </li>
-  <li role="presentation">
-    <a href="#">Mi Favoritos</a>
+  <li role="presentation" class="<%= active_nav(my_favorites_path) %>">
+    <%= link_to 'Mis Favoritos', my_favorites_path  %>
   </li>
   <li role="presentation" class="<%= active_nav(edit_user_registration_path) %>">
     <%= link_to 'Mi Perfil', edit_user_registration_path %>

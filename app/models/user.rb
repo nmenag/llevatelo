@@ -34,6 +34,7 @@
 
 
 
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -41,7 +42,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :articles, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :favorites
+  has_many :favorite_articles, through: :favorites, source: :favorited, source_type: 'Article'
 
   validates :email, :role, :phone, presence: true
 
@@ -50,6 +52,10 @@ class User < ApplicationRecord
   after_initialize :set_default_role
 
   mount_uploader :picture, ImageArticleUploader
+
+  def can_add_favorite?(article)
+    !articles.exists?(id: article.id)
+  end
 
   private
 

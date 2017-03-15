@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-md-9">
       <div class="thumbnail">
-        <h2><%= @article.name %></h2>
+        <h2><%= @article.name %>
+          <%= favorited_button(@article) %>
+        </h2>
+        
         <span class='time-ago'>
           <i class='fa fa-clock-o'></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
         </span>

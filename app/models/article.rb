@@ -22,11 +22,7 @@
 
 
 
-
-
 class Article < ApplicationRecord
-  mount_uploader :photo, ImageArticleUploader
-
   belongs_to :user
   belongs_to :category, optional: true
   has_many :favorites, dependent: :destroy
@@ -35,10 +31,14 @@ class Article < ApplicationRecord
   validates_length_of :name, maximum: 100
 
   enum offer_type: [:gift, :want, :barter]
-
   enum status: [:reserved, :available]
 
+  scope :pusblish_articles, -> (user) { where.not(user: user) }
+
+  mount_uploader :photo, ImageArticleUploader
+
   after_initialize :default_values
+
 
   private
 
