@@ -44,6 +44,5 @@ class Article < ApplicationRecord
 
   def default_values
     self.status ||= Article.statuses[:available]
-    self.location ||= '0'
   end
 end

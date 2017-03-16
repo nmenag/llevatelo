@@ -20,8 +20,13 @@
             			  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre del articulo" %>
             			</div>
             			<div class="form-group">
-            			  <%= f.select :offer_type, generate_list(Article.offer_types) , { include_blank: "Seleccionar tipo" },  { class: 'form-control' }  %>
+            			  <%= f.select :offer_type, generate_list(Article.offer_types) , { include_blank: 'Tipo' },  { class: 'form-control' }  %>
             			</div>
+
+                  <div class="form-group">
+                    <%= f.select :location, region_country, { include_blank: "Ciudad" },  { class: 'form-control' }  %>
+            			</div>
+
             			<div class="form-group">
             			  <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
             			</div>

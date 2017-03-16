@@ -37,4 +37,9 @@ module ApplicationHelper
     end
   end
 
+  def region_country
+    country = Carmen::Country.coded('CO')
+    I18n.locale = :en
+    country.subregions.map{|e| [e.name, e.name]}
+  end
 end
