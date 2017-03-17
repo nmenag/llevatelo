@@ -24,6 +24,7 @@ header {
 #articles {
   .caption{
     font-size: 16 px;
+		height: 30%;
   }
 	.list-articles {
 		a:link {
@@ -44,10 +45,10 @@ header {
 	}
 
 	.thumbnail {
-		height: 350px;
+		height: 320px;
 		img {
 			height: 180px;
-			width: 100%;
+			width: 350px;
 		}
 		&:hover {
 			box-shadow: 5px 5px #f5f5f5;
