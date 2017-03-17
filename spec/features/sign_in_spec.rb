@@ -46,19 +46,7 @@ RSpec.feature "SignIn", type: :feature do
         password: password
       )
 
-      within :css, '#flash_alert' do
-        expect(page).to have_content 'Email o contraseña inválidos.'
-      end
-    end
-
-    scenario 'with credentials invalid' do
-      password = Faker::Internet.password
-      sign_in_form(
-        email: user.email,
-        password: password
-      )
-
-      within :css, '#flash_alert' do
+      within :css, '.alert-warning' do
         expect(page).to have_content 'Email o contraseña inválidos.'
       end
     end

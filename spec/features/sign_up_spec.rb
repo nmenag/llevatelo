@@ -72,7 +72,10 @@ RSpec.feature "SignUp", type: :feature do
         password_confirmation: password
       )
 
-      expect(page).to have_selector '#error_explanation'
+      within :css, '.alert-danger' do
+        expect(page).to have_content 'Email ya está en uso'
+      end
+
     end
   end
 end
