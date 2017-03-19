@@ -24,6 +24,7 @@ class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category, optional: true
   has_many :favorites, as: :favorited, dependent: :destroy
+  has_many :article_images, dependent: :destroy
 
   validates :name, :description, :offer_type, :location, :user, presence: true
   validates_length_of :name, maximum: 100

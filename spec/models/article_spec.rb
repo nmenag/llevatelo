@@ -21,10 +21,6 @@
 #
 
 
-
-
-
-
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
@@ -46,6 +42,7 @@ RSpec.describe Article, type: :model do
   context 'associations' do
     it { should belong_to(:user) }
     it { should belong_to(:category) }
+      it { should have_many(:article_images).dependent(:destroy) }
   end
 
   context 'validations' do

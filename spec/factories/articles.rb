@@ -20,11 +20,6 @@
 #  index_articles_on_user_id      (user_id)
 #
 
-
-
-
-
-
 FactoryGirl.define do
   factory :article do
     name { Faker::Commerce.product_name }
