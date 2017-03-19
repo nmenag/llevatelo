@@ -5,9 +5,9 @@ class ArticlesController < ApplicationController
   end
 
   def my_articles
-    @gifts = current_user.articles.find_all{ |a| a.gift? }
-    @wants = current_user.articles.find_all{|a| a.want? }
-    @barters = current_user.articles.find_all{|a| a.barter? }
+    @gifts = current_user.articles.find_all { |a| a.gift? }
+    @wants = current_user.articles.find_all { |a| a.want? }
+    @barters = current_user.articles.find_all { |a| a.barter? }
   end
 
   def show
@@ -27,12 +27,15 @@ class ArticlesController < ApplicationController
       redirect_to my_articles_path
     else
       5.times { @article.article_images.build }
-      render :form
+      render action: 'new'
     end
   end
 
   def edit
     @article = Article.find(params[:id])
+
+    images_number = @article.article_images.count
+    (5 - images_number).times { @article.article_images.build }
     render :form
   end
 

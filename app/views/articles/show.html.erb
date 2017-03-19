@@ -9,14 +9,21 @@
         <span class='time-ago'>
           <i class='fa fa-clock-o'></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
         </span>
-        <br> 
+        <br>
         <span class='time-ago'>
           <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @article.location %>
         </span>
 
         <h4 class="pull-right"><%= text_location(@article.status) %></h4>
 
-        <%= image_tag @article.photo, class: 'img-responsive'  %>
+        <div class="sp-wrap">
+          <% @article.article_images.each do |article_image|%>
+            <a href="<%= article_image.image_file_name %>">
+              <img src="<%= article_image.image_file_name %>" class="img-responsive" alt="">
+            </a>
+          <% end %>
+        </div>
+
         <div class="caption-full">
           <p><%= @article.description %></p>
         </div>

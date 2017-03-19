@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require jquery.validate
 //= require nested_form_fields
+//= require smoothproducts
 //= require_tree .

@@ -45,13 +45,17 @@
               </div>
 
               <div class='col-md-6'>
-                <%= f.nested_fields_for :article_images do |ff| %>
                   <div class="col-md-12 col-sm-6 col-xs-6">
-              			<div class="form-group">
-                      <%= ff.file_field :image_file_name, class: 'control' %>
-              			</div>
+                    <%= f.nested_fields_for :article_images do |ff| %>
+                      <% if ff.object.new_record? %>
+                  			<div class="form-group">
+                          <%= ff.file_field :image_file_name, class: 'control' %>
+                  			</div>
+                      <% else %>
+                        <%= ff.object.image_file_name.file.filename %>
+                      <% end %>
+                    <% end %>
   		            </div>
-                <% end %>
               </div>
             </div>
 
