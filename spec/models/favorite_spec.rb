@@ -15,6 +15,7 @@
 #  index_favorites_on_user_id                          (user_id)
 #
 
+
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do

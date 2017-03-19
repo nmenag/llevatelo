@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    5.times { @article.article_images.build }
     render :form
   end
 
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Se ha agregado un nuevo articulo"
       redirect_to my_articles_path
     else
+      5.times { @article.article_images.build }
       render :form
     end
   end
@@ -57,6 +59,9 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:name, :offer_type, :description, :status, :photo, :location)
+    params.require(:article).permit(
+      :name, :offer_type, :description, :status, :photo, :location,
+      article_images_attributes:[:image_file_name]
+    )
   end
 end

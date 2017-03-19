@@ -3,7 +3,7 @@
 # Table name: article_images
 #
 #  id              :integer          not null, primary key
-#  article_id      :integer          not null
+#  article_id      :integer
 #  image_file_name :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -14,7 +14,9 @@
 #
 
 class ArticleImage < ApplicationRecord
-  belongs_to :article
+  belongs_to :article, required: false
 
-  validates :article, :image_file_name, presence: true
+  validates :image_file_name, presence: true
+
+  mount_uploader :image_file_name, ImageArticleUploader
 end

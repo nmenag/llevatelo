@@ -3,7 +3,7 @@
 # Table name: article_images
 #
 #  id              :integer          not null, primary key
-#  article_id      :integer          not null
+#  article_id      :integer
 #  image_file_name :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -31,7 +31,6 @@ RSpec.describe ArticleImage, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of(:article) }
     it { should validate_presence_of(:image_file_name) }
   end
 

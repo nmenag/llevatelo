@@ -38,6 +38,7 @@ class Article < ApplicationRecord
 
   after_initialize :default_values
 
+  accepts_nested_attributes_for :article_images,  allow_destroy: true
 
   private
 

@@ -3,7 +3,7 @@
 # Table name: article_images
 #
 #  id              :integer          not null, primary key
-#  article_id      :integer          not null
+#  article_id      :integer
 #  image_file_name :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -15,7 +15,7 @@
 
 FactoryGirl.define do
   factory :article_image do
-    image_file_name { Faker::Avatar.image }
+    image_file_name {  File.open(File.join(Rails.root, 'public', 'images', 'cover.png')) }
     association :article, factory: :article
   end
 end

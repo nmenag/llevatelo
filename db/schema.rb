@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170319010340) do
   enable_extension "plpgsql"
 
   create_table "article_images", force: :cascade do |t|
-    t.integer  "article_id",      null: false
+    t.integer  "article_id"
     t.string   "image_file_name", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
