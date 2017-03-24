@@ -40,6 +40,10 @@ class Article < ApplicationRecord
 
   accepts_nested_attributes_for :article_images,  allow_destroy: true
 
+  def image_main
+    article_images&.first
+  end
+
   private
 
   def default_values
