@@ -13,6 +13,7 @@
 #  index_article_images_on_article_id  (article_id)
 #
 
+
 class ArticleImage < ApplicationRecord
   belongs_to :article, required: false
 

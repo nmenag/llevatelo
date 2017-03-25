@@ -13,9 +13,9 @@
         <div class="col-md-4 col-sm-6">
           <%= link_to article_path(article) do %>
             <div class="thumbnail">
-              <%= display_image_article(article) %>
+              <%= image_tag display_image_article(article), class: 'img-responsive' %>
               <div class="caption">
-                <h5><%= article.name%> (<%= text_location(article.status) %>)</h5>
+                <h5><%= article.name %> (<%= text_location(article.status) %>)</h5>
                 <p><%= truncate(article.description, length: 100) %></p>
               </div>
               <div class="ratings">

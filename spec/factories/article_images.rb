@@ -13,6 +13,7 @@
 #  index_article_images_on_article_id  (article_id)
 #
 
+
 FactoryGirl.define do
   factory :article_image do
     image_file_name {  File.open(File.join(Rails.root, 'public', 'images', 'cover.png')) }
