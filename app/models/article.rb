@@ -38,10 +38,15 @@ class Article < ApplicationRecord
 
   after_initialize :default_values
 
-  accepts_nested_attributes_for :article_images,  allow_destroy: true
+  accepts_nested_attributes_for :article_images, reject_if: :all_blank, allow_destroy: true
 
   def image_main
     article_images&.first
+  end
+
+  def total_images
+    images_number = self.article_images.count
+    (5 - images_number).times { self.article_images.build }
   end
 
   private

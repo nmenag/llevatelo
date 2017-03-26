@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article  = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -33,9 +33,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-
-    images_number = @article.article_images.count
-    (5 - images_number).times { @article.article_images.build }
+    @article.total_images
     render :form
   end
 
@@ -45,6 +43,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Se ha modificado el  articulo #{@article.name}"
       redirect_to my_articles_path
     else
+      @article.total_images
       render :form
     end
   end
@@ -64,7 +63,7 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(
       :name, :offer_type, :description, :status, :photo, :location,
-      article_images_attributes:[:image_file_name]
+      article_images_attributes:[:id, :image_file_name, :_destroy]
     )
   end
 end

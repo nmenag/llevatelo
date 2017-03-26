@@ -1,0 +1,26 @@
+<div class="col-md-4 col-sm-6">
+  <div class="thumbnail">
+    <% if ff.object.new_record? %>
+      <%= image_tag '/images/cover.png', class: 'img-responsive image-placeholder' %>
+      <div class='actions'>
+        <a class="preview-image btn btn-default btn-xs" href="#" data-toggle="tooltip" data-placement="bottom" title="Ver">
+          <i class="glyphicon glyphicon-eye-open"></i>
+        </a>
+        <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, '#', data: { confirm: 'Esta seguro?' }, class: 'destroy-article btn btn-danger btn-xs' %>
+        <%= ff.remove_nested_fields_link '', class: 'hidden' %>
+      </div>
+    <% else %>
+      <%= image_tag ff.object.image_file_name, class: 'img-responsive' %>
+
+      <div class='actions'>
+        <a class="preview-image btn btn-default btn-xs" href="#" data-toggle="tooltip" data-placement="bottom" title="Ver">
+          <i class="glyphicon glyphicon-eye-open"></i>
+        </a>
+        <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, '#', data: { confirm: 'Esta seguro?' }, class: 'destroy-article btn btn-danger btn-xs' %>
+        <%= ff.remove_nested_fields_link '', class: 'hidden' %>
+      </div>
+    <% end %>
+
+    <%= ff.file_field :image_file_name, class: 'hidden file-image' %>
+  </div>
+</div>

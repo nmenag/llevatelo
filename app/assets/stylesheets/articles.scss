@@ -53,3 +53,16 @@
 .modal-header {
   background: $gray-lighter;
 }
+
+.article-form{
+  .add-articles {
+    .image-placeholder {
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
+
+    .actions{
+      padding-top: 5px;
+    }
+  }
+}
