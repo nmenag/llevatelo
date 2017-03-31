@@ -1,5 +1,4 @@
 .articles {
-  padding-top: 70px;
   padding-bottom: 50px;
 
   .date-info{
@@ -21,9 +20,8 @@
     color: $gray-light;
   }
   .thumbnail {
-    .img-responsive {
-      width: 100%;
-      height: 350px;
+    .display-images {
+      margin-top: 20px;
     }
   }
 }
@@ -44,10 +42,6 @@
   .empty-article{
     padding: 10px;
   }
-}
-
-.my-articles {
-  padding-top: 70px;
 }
 
 .modal-header {

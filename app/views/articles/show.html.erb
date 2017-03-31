@@ -2,30 +2,41 @@
   <div class="row">
     <div class="col-md-9">
       <div class="thumbnail">
-        <h2><%= @article.name %>
-          <%= favorited_button(@article) %>
-        </h2>
+        <div class='row'>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class='display-images'>
+              <% if @article.article_images.present? %>
+                <div class="sp-wrap">
+                  <% @article.article_images.each do |article_image|%>
+                    <a href="<%= article_image.image_file_name %>">
+                      <img src="<%= article_image.image_file_name %>" class="img-responsive" alt="">
+                    </a>
+                  <% end %>
+                </div>
+              <% else %>
+                <%= image_tag display_image_article(@article), class: 'img-responsive' %>
+              <% end %>
+            </div>
+          </div>
+          <div class='col-lg-6 col-md-6 col-sm-5'>
+            <h2><%= @article.name %>
+              <%= favorited_button(@article) %>
+            </h2>
 
-        <span class='time-ago'>
-          <i class='fa fa-clock-o'></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
-        </span>
-        <br>
-        <span class='time-ago'>
-          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @article.location %>
-        </span>
+            <span class='time-ago'>
+              <i class='fa fa-clock-o'></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
+            </span>
+            <br>
+            <span class='time-ago'>
+              <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @article.location %>
+            </span>
 
-        <h4 class="pull-right"><%= text_location(@article.status) %></h4>
+            <h4 class="pull-right"><%= text_location(@article.status) %></h4>
 
-        <div class="sp-wrap">
-          <% @article.article_images.each do |article_image|%>
-            <a href="<%= article_image.image_file_name %>">
-              <img src="<%= article_image.image_file_name %>" class="img-responsive" alt="">
-            </a>
-          <% end %>
-        </div>
-
-        <div class="caption-full">
-          <p><%= @article.description %></p>
+            <div class="caption-full">
+              <p><%= @article.description %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
