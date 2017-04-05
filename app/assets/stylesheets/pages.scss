@@ -2,10 +2,9 @@ header {
 	text-align: center;
 	background: $theme-success;
 	color: white;
-	.container {
-		padding-top: 100px;
-		padding-bottom: 50px;
-	}
+	padding-top: 100px;
+	padding-bottom: 50px;
+
 	img {
 		display: block;
 		margin: 0 auto 20px;
@@ -19,6 +18,10 @@ header {
 			font-size: 2em;
 		}
 	}
+}
+
+.container {
+	margin-top: 20px;
 }
 
 #articles {
