@@ -7,9 +7,10 @@ $(document).on('turbolinks:load', function() {
 
   RemoveAndAddImage();
 
-  $(document).on('change', '.file-image', function() {
+  $('body').on('change', '.file-image', function() {
     var placeImg = $(this).parent().find('img');
     readURL(this, placeImg);
+    placeImg.css('opacity', 1);
   });
 
   $(".article-form .img-responsive").css('height', '69px');
