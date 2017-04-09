@@ -72,10 +72,6 @@ RSpec.feature "SignIn", type: :feature do
       login(user)
       click_link 'Salir'
       expect(page).to have_selector '.sign-in'
-
-      within :css, '.sign-in' do
-        expect(page).to have_content 'Login'
-      end
     end
   end
 end

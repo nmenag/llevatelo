@@ -8,9 +8,10 @@ RSpec.feature "Pages", type: :feature do
     within :css, '.navbar' do
       expect(page).to have_css('a.navbar-brand', text: 'Llevatelo.co')
       expect(page).to have_css('.navbar-right')
-      expect(page).to have_css('.navbar-right li', count: 2)
-      expect(page).to have_css('.navbar-right', text: 'Acerca de')
-      expect(page).to have_css('.sign-in a', text: 'Login')
+      expect(page).to have_css('.navbar-right li', count: 3)
+      expect(page).to have_css('.navbar-right', text: 'Registrarse')
+      expect(page).to have_css('.navbar-right', text: 'Ingresar')
+      expect(page).to have_css('.sign-in a', text: 'Publicar')
     end
 
     within :css, '.intro-text' do
@@ -29,9 +30,9 @@ RSpec.feature "Pages", type: :feature do
     expect(current_path).to eq new_user_session_path
   end
 
-  scenario 'should return about page' do
+  scenario 'should return registration new page' do
     visit root_path
-    find('a', text: 'Acerca de').click
-    expect(current_path).to eq about_pages_path
+    find('a', text: 'Registrarse').click
+    expect(current_path).to eq new_user_registration_path
   end
 end

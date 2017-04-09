@@ -5,9 +5,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  resources :pages, only:[] do
-    get :about, on: :collection
-  end
+  resources :pages, only:[]
 
   devise_for :users, :controllers => { registrations: 'users/registrations', confirmations: 'users/confirmations' }
   resources :articles
@@ -21,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
   get 'my_favorites' => 'favorites#my_favorites'
-  
+
 end
