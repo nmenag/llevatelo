@@ -12,6 +12,10 @@
 #
 #  index_article_images_on_article_id  (article_id)
 #
+# Foreign Keys
+#
+#  fk_rails_95824e00d3  (article_id => articles.id)
+#
 
 require 'rails_helper'
 

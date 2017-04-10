@@ -9,14 +9,8 @@
 #  updated_at :datetime         not null
 #
 
-
-
-
-
-
-
 class Category < ApplicationRecord
   has_many :articles
-  
+
   validates :name, presence: true
 end

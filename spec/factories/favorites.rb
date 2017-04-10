@@ -14,6 +14,10 @@
 #  index_favorites_on_favorited_type_and_favorited_id  (favorited_type,favorited_id)
 #  index_favorites_on_user_id                          (user_id)
 #
+# Foreign Keys
+#
+#  fk_rails_d15744e438  (user_id => users.id)
+#
 
 FactoryGirl.define do
   factory :favorite do

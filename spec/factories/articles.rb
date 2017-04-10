@@ -18,7 +18,11 @@
 #  index_articles_on_category_id  (category_id)
 #  index_articles_on_user_id      (user_id)
 #
-
+# Foreign Keys
+#
+#  fk_rails_3d31dad1cc  (user_id => users.id)
+#  fk_rails_af09d53ead  (category_id => categories.id)
+#
 
 FactoryGirl.define do
   factory :article do
