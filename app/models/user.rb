@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -17,7 +17,7 @@
 #  updated_at             :datetime         not null
 #  status                 :boolean          default(FALSE), not null
 #  role                   :integer          not null
-#  phone                  :string           not null
+#  phone                  :string
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
@@ -30,23 +30,19 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-
-
-
-
-
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+        :recoverable, :rememberable, :trackable, :validatable,
+        :authentication_keys => [:login]
 
   has_many :articles, dependent: :destroy
   has_many :favorites
   has_many :favorite_articles, through: :favorites, source: :favorited, source_type: 'Article'
 
-  validates :email, :role, :phone, presence: true
+  validates :role, presence: true
+  validate  :validate_login
 
   enum role: [:superadmin, :registered]
 
@@ -54,13 +50,29 @@ class User < ApplicationRecord
 
   mount_uploader :picture, ImageArticleUploader
 
+  attr_accessor :login
+
   def can_add_favorite?(article)
     !articles.exists?(id: article.id)
+  end
+
+  def email_required?
+    false
+  end
+
+  def self.find_for_database_authentication warden_conditions
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(phone) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
   end
 
   private
 
   def set_default_role
     self.role ||= :registered
+  end
+
+  def validate_login
+    errors.add(:base, :phone_or_email_blank, message: "either phone or email must be present") if self.email.blank? && self.phone.blank?
   end
 end

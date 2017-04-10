@@ -1,14 +1,14 @@
 $(document).on('turbolinks:load', function() {
-  $('#new_user, .edit_user').validate({
-    rules: {
-     'user[email]': 'required',
-     'user[phone]': 'required',
-
-    },
-    messages: {
-      'user[email]': 'Ingresa un correo electrónico',
-    },
-  });
+  // $('#new_user, .edit_user').validate({
+  //   rules: {
+  //   //  'user[email]': 'required',
+  //   //  'user[phone]': 'required',
+  //
+  //   },
+  //   messages: {
+  //     'user[email]': 'Ingresa un correo electrónico',
+  //   },
+  // });
 
   $('#updatePassword').validate({
     rules: {

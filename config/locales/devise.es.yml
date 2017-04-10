@@ -15,12 +15,12 @@ es:
       unauthenticated: 'Tienes que registrarte o iniciar sesión antes de continuar.'
       unconfirmed: 'Tienes que confirmar tu cuenta antes de continuar.'
       locked: 'Tu cuente está bloqueada.'
-      invalid: 'Email o contraseña inválidos.'
+      invalid: 'los datos de acceso son inválidos.'
       invalid_token: 'Token de autentificación inválido.'
       timeout: 'Tu sesión ha expirado. Inicia sesión nuevamente.'
       inactive: 'Tu cuenta aun no ha sido activada.'
       user:
-        not_found_in_database: "Contraseña o Email inválido."
+        not_found_in_database: 'los datos de acceso son inválidos.'
 
     sessions:
       signed_in: 'Iniciaste sesión correctamente.'

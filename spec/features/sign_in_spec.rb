@@ -30,24 +30,22 @@ RSpec.feature "SignIn", type: :feature do
     expect(current_path).to eq new_user_password_path
   end
 
-  scenario 'should display resend email of confirmation form' do
-    visit new_user_session_path
-    all('.panel-body a')[2].click
-    expect(current_path).to eq new_user_confirmation_path
-  end
+  context 'login with email' do
+    let!(:user){ create(:user, phone: nil) }
 
-  context 'login' do
-    let!(:user){ create(:user) }
+    before do
+      user.login = user.email
+    end
 
     scenario 'with credentials invalid' do
       password = Faker::Internet.password
       sign_in_form(
-        email: user.email,
+        login: user.login,
         password: password
       )
 
       within :css, '.alert-warning' do
-        expect(page).to have_content 'Email o contraseña inválidos.'
+        expect(page).to have_content 'los datos de acceso son inválidos.'
       end
     end
 
@@ -57,7 +55,7 @@ RSpec.feature "SignIn", type: :feature do
       expect(current_path).to eq root_path
 
       within :css, '.dropdown' do
-        expect(page).to have_content user.email.split('@')[0]
+        expect(page).to have_content 'Mi Perfil'
       end
 
       within :css, '.dropdown-menu' do
@@ -67,8 +65,55 @@ RSpec.feature "SignIn", type: :feature do
         expect(page).to have_content 'Salir'
       end
     end
+  end
 
-    scenario 'sign out' do
+  context 'login with phone' do
+    phone = Faker::PhoneNumber.phone_number.delete('.')
+    let!(:user){ create(:user, email: nil, phone: phone) }
+
+    before do
+      user.login = user.phone
+    end
+
+    scenario 'with credentials invalid' do
+      password = Faker::Internet.password
+
+      sign_in_form(
+        login: user.login,
+        password: password
+      )
+
+      within :css, '.alert-warning' do
+        expect(page).to have_content 'los datos de acceso son inválidos.'
+      end
+    end
+
+    scenario 'access user registered' do
+      login(user)
+
+      expect(current_path).to eq root_path
+
+      within :css, '.dropdown' do
+        expect(page).to have_content 'Mi Perfil'
+      end
+
+      within :css, '.dropdown-menu' do
+        expect(page).to have_content 'Mis Publicaciones'
+        expect(page).to have_content 'Editar'
+        expect(page).to have_content 'Perfil'
+        expect(page).to have_content 'Salir'
+      end
+    end
+  end
+
+  context 'sign out' do
+    let!(:user){ create(:user) }
+
+    before do
+      user.login = user.email
+    end
+
+    scenario 'should destroy session' do
       login(user)
       click_link 'Salir'
       expect(page).to have_selector '.sign-in'
@@ -78,7 +123,7 @@ end
 
 def sign_in_form(opts={})
   visit new_user_session_path
-  fill_in 'user_email', with: opts[:email]
+  fill_in 'user_login', with: opts[:login]
   fill_in 'user_password', with: opts[:password]
   click_button "Ingresar"
 end

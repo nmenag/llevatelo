@@ -2,8 +2,8 @@ es:
   activerecord:
     attributes:
       user:
-        email: Email
-        password: Password
+        email: Correo electronico
+        password: contraseña
         remember_me: Recordame
     errors:
       messages:

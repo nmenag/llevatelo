@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -17,7 +17,7 @@
 #  updated_at             :datetime         not null
 #  status                 :boolean          default(FALSE), not null
 #  role                   :integer          not null
-#  phone                  :string           not null
+#  phone                  :string
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
@@ -30,18 +30,13 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-
-
-
-
-
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
   context 'db' do
     context 'columns' do
-      it { should have_db_column(:email).of_type(:string).with_options(default: "", null: false) }
+      it { should have_db_column(:email).of_type(:string).with_options(default: "") }
       it { should have_db_column(:encrypted_password).of_type(:string).with_options(default: "", null: false) }
       it { should have_db_column(:reset_password_token).of_type(:string) }
       it { should have_db_column(:reset_password_sent_at).of_type(:datetime) }
@@ -52,7 +47,7 @@ RSpec.describe User, type: :model do
       it { should have_db_column(:last_sign_in_ip).of_type(:string) }
       it { should have_db_column(:status).of_type(:boolean).with_options(default: false, null: false) }
       it { should have_db_column(:role).of_type(:integer).with_options(null: false) }
-      it { should have_db_column(:phone).of_type(:string).with_options(null: false) }
+      it { should have_db_column(:phone).of_type(:string) }
       it { should have_db_column(:picture).of_type(:string) }
     end
 
@@ -69,10 +64,8 @@ RSpec.describe User, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of(:email) }
     it { should validate_presence_of(:role) }
     it { should define_enum_for(:role).with([:superadmin, :registered]) }
-    it { should validate_presence_of(:phone) }
   end
 
   it 'has a valid factory' do

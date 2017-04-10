@@ -7,7 +7,7 @@ RSpec.feature "SignUp", type: :feature do
     within :css, '.login-form' do
       expect(page).to have_css('.panel-login')
       expect(page).to have_css('.panel-heading')
-      expect(page).to have_css('.panel-heading h4', text: "Registro")
+      expect(page).to have_css('.panel-heading h3', text: "Registro")
       expect(page).to have_css('.new_user')
       expect(page).to have_css('.form-group', count: 5)
       expect(page).to have_css('.btn-info')
@@ -29,19 +29,7 @@ RSpec.feature "SignUp", type: :feature do
     expect(current_path).to eq new_user_password_path
   end
 
-  scenario 'should display resend email of confirmation form' do
-    visit new_user_session_path
-    all('.panel-body a')[2].click
-    expect(current_path).to eq new_user_confirmation_path
-  end
-
   context 'register user', js: true do
-    scenario 'with all the inputs empty' do
-      form_register
-      expect(page).to have_selector '#user_email-error'
-      expect(page).to have_selector '#user_phone-error'
-    end
-
     scenario 'with valid input' do
       user = build(:user)
       password = Faker::Internet.password
@@ -71,11 +59,7 @@ RSpec.feature "SignUp", type: :feature do
         password:password,
         password_confirmation: password
       )
-
-      within :css, '.alert-danger' do
-        expect(page).to have_content 'Email ya está en uso'
-      end
-
+      expect(page).to have_css('.alert-danger', text: 'Correo electronico ya está en uso')
     end
   end
 end

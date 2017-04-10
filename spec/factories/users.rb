@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -17,7 +17,7 @@
 #  updated_at             :datetime         not null
 #  status                 :boolean          default(FALSE), not null
 #  role                   :integer          not null
-#  phone                  :string           not null
+#  phone                  :string
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
@@ -29,11 +29,6 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-
-
-
-
-
 
 FactoryGirl.define do
   factory :user do

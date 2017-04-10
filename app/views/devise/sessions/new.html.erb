@@ -17,7 +17,7 @@
                       <% content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
                     <%- end -%>
 
-                    <%= f.email_field :email, autofocus: true, class: 'form-control',  placeholder: 'Correo electronico' %>
+                    <%= f.text_field :login, autofocus: true, class: 'form-control',  placeholder: 'Correo electronico o numero telefonico' %>
                   </div>
 
                   <div class="form-group">
