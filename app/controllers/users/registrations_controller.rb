@@ -8,9 +8,9 @@ before_action :configure_account_update_params, only: [:update]
   end
 
   # POST /resource
-  def create
-    super
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
@@ -56,11 +56,15 @@ before_action :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:phone, :picture])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :phone, :picture])
   end
 
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    begin
+      resource.update_without_password(params)
+    rescue => e
+      flash[:error] = 'No se puede modificar el email'
+    end
   end
 
   # The path used after sign up.
