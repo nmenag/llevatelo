@@ -1,24 +1,36 @@
 $(document).on('turbolinks:load', function() {
-  // $('#new_user, .edit_user').validate({
-  //   rules: {
-  //   //  'user[email]': 'required',
-  //   //  'user[phone]': 'required',
-  //
-  //   },
-  //   messages: {
-  //     'user[email]': 'Ingresa un correo electrónico',
-  //   },
-  // });
+  $('#new_user, .edit_user').validate({
+    rules: {
+      'user[login]': {
+        required: true
+      },
+     'user[password]': 'required',
+     'user[password_confirmation]': {
+        required: true,
+        equalTo: "#user_password"
+      }
+    },
+    messages: {
+      'user[password]': 'Ingresa tu contraseña',
+      'user[password_confirmation]': {
+        required: 'Por favor confirme la contraseña'
+      }
+    },
+  });
 
   $('#updatePassword').validate({
     rules: {
       'user[password]': 'required',
-      'user[password_confirmation]': 'required',
-      'user[current_password]': 'required'
+      'user[password_confirmation]': {
+        required: true,
+        equalTo: "#user_password"
+      }
     },
     messages: {
       'user[password]': 'Ingresa tu contraseña',
-      'user[password_confirmation]': 'Por favor confirme la contraseña'
+      'user[password_confirmation]': {
+        required: 'Por favor confirme la contraseña'
+      }
     },
   });
 

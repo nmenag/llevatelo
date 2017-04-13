@@ -131,6 +131,7 @@ es:
       not_a_number: no es un número
       not_an_integer: debe ser un entero
       odd: debe ser impar
+      phone_or_email_blank: 'El Correo electrónico o Teléfono no puede estar en blanco'
       required: debe existir
       taken: ya está en uso
       too_long:

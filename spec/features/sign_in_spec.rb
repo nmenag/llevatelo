@@ -68,7 +68,7 @@ RSpec.feature "SignIn", type: :feature do
   end
 
   context 'login with phone' do
-    phone = Faker::PhoneNumber.phone_number.delete('.')
+    phone = Faker::Number.number(10)
     let!(:user){ create(:user, email: nil, phone: phone) }
 
     before do

@@ -48,6 +48,9 @@ RSpec.describe User, type: :model do
       it { should have_db_column(:status).of_type(:boolean).with_options(default: false, null: false) }
       it { should have_db_column(:role).of_type(:integer).with_options(null: false) }
       it { should have_db_column(:phone).of_type(:string) }
+      it { should validate_numericality_of(:phone).only_integer }
+      it { should validate_length_of(:phone).is_at_least(7) }
+      it { should validate_length_of(:phone).is_at_most(20) }
       it { should have_db_column(:picture).of_type(:string) }
     end
 
@@ -78,4 +81,32 @@ RSpec.describe User, type: :model do
       expect(user.registered?).to eq true
     end
   end
+
+  describe 'when is phone and email is empty' do
+    it 'has invalid factory' do
+      expect(build(:user, email: nil, phone: nil)).not_to be_valid
+    end
+  end
+
+  describe 'when is email present' do
+    it 'has valid factory without phone' do
+      expect(build(:user, phone: nil)).to be_valid
+    end
+
+    it 'has invalid factory without email format' do
+      expect(build(:user, phone: nil, email: 'example')).not_to be_valid
+    end
+  end
+
+  describe 'when is phone present' do
+    it 'has valid factory without email' do
+      expect(build(:user, email: nil)).to be_valid
+    end
+
+    it 'has invalid factory' do
+      expect(build(:user, email: nil, phone: '1234')).not_to be_valid
+    end
+  end
+
+
 end

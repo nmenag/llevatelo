@@ -61,6 +61,23 @@ RSpec.feature "SignUp", type: :feature do
       )
       expect(page).to have_css('.alert-danger', text: 'Correo electronico ya está en uso')
     end
+
+    scenario 'when password and password confirmation is empty' do
+      form_register
+      expect(page).to have_css('#user_password-error')
+      expect(page).to have_css('#user_password_confirmation-error')
+    end
+
+    scenario 'when the email and the phone is empty' do
+      password = Faker::Internet.password
+
+      form_register(
+        password:password,
+        password_confirmation: password
+      )
+
+      expect(page).to have_css('.alert-danger', text: 'El Correo electrónico o Teléfono no puede estar en blanco')
+    end
   end
 end
 

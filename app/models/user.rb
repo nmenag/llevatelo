@@ -43,6 +43,8 @@ class User < ApplicationRecord
 
   validates :role, presence: true
   validate  :validate_login
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :email?
+  validates :phone, length: { in: 7..20 }, numericality: { only_integer: true }, if: :phone?
 
   enum role: [:superadmin, :registered]
 
@@ -73,6 +75,6 @@ class User < ApplicationRecord
   end
 
   def validate_login
-    errors.add(:base, :phone_or_email_blank, message: "either phone or email must be present") if self.email.blank? && self.phone.blank?
+    errors.add(:base, :phone_or_email_blank) if self.email.blank? && self.phone.blank?
   end
 end
