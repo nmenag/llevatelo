@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
-  $(document).on('click', '.add-articles img', function() {
+  $('body').on('click', '.add-articles img', function() {
     var fileImage = $(this).parent().find('.file-image');
     fileImage.click();
   });
@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function() {
 
   $(".article-form .img-responsive").css('height', '69px');
 
-  $(document).on('click',' a.preview-image', function(e) {
+  $('body').on('click',' a.preview-image', function(e) {
     e.preventDefault();
     $('#imagepreview').attr('src', $(this).parents('.thumbnail').find('img').attr('src')); // here asign the image to the modal when the user click the enlarge link
     $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
