@@ -1,10 +1,23 @@
-<header>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="intro-text">
-        <h2 class="heading">¡Un sitio donde puedes pedir lo que necesites,
-          regalar lo que no utilices o simplemete intercambia cosas que no uses!</h2>
-      </div>
+<header id="header_banner">
+      <div class="container" tabindex="-1">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+<!--
+                    <h1 class="name" style="font-size: 60px;">LLevatelo.co</h1>
+                    <hr class="star-light">
+-->
+                    <h1 class="name" style="font-size: 40px;"><b>Tienes algo que desees regalar o intercambiar, comienza aquí.</b></h1>
+                    
+                    <%= link_to '<button class="btn active filter-button btn-lg" data-filter="spray" style="border-color: white;">Publicar</button>'.html_safe, new_article_path %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+<!--
+        <div class="intro-text">
+          <h2 class="heading">¡Un sitio donde puedes pedir lo que necesites,
+            regalar lo que no utilices o simplemete intercambia cosas que no uses!</h2>
+        </div>
+-->
 </header>

@@ -36,7 +36,11 @@ class Article < ApplicationRecord
   enum offer_type: [:gift, :want, :barter]
   enum status: [:reserved, :available]
 
-  scope :pusblish_articles, -> (user) { where.not(user: user) }
+  default_scope { order(updated_at: :desc) }
+  scope :pusblish_articles, -> (user) { where.not(user: user)}
+  scope :gift_articles, -> { where(offer_type: Article.offer_types[:gift]) }
+  scope :want_articles, -> { where(offer_type: Article.offer_types[:want]) }
+  scope :barter_articles, -> { where(offer_type: Article.offer_types[:barter]) }
 
   after_initialize :default_values
 
@@ -56,4 +60,5 @@ class Article < ApplicationRecord
   def default_values
     self.status ||= Article.statuses[:available]
   end
+
 end

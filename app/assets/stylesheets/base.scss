@@ -21,7 +21,7 @@ outline: none;
 h1, h2, h3, h4, h5, h6 {
 font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 text-transform: uppercase;
-font-weight: 700;
+font-weight: 500;
 }
 
 hr.star-light, hr.star-primary {
@@ -29,7 +29,7 @@ padding: 0;
 border: none;
 border-top: solid 5px;
 text-align: center;
-max-width: 200px;
+max-width: 100%;
 margin: 25px auto 30px;
 }
 
@@ -46,6 +46,7 @@ border-color: $theme-primary;
 &:after{
 background-color: white;
 color: $theme-primary;
+height: 90%;
 }
 }
 
@@ -54,6 +55,29 @@ text-align: center;
 background: #18BC9C;
 color: white;
 }
+
+
+#header_banner {
+text-align: center;
+background: url(/images/banner.png) no-repeat center top;
+background-attachment: relative;
+background-position: center center;
+min-height: 500px;
+width: 100%;
+    
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
 header .container {
 padding-top: 100px;
 padding-bottom: 50px;
@@ -76,7 +100,7 @@ font-weight: 300;
 
 @media (min-width: 768px) {
 header .container {
-padding-top: 200px;
+padding-top: 60px;
 padding-bottom: 100px;
 }
 header .intro-text .name {
@@ -112,7 +136,7 @@ margin: 0 auto;
 }
 
 section {
-padding: 70px 0;
+padding: 40px 0;
 h2 {
 margin: 0;
 font-size: 3em;
@@ -217,4 +241,78 @@ $i: 120    ;
 @while $i > 0 {
 .size-#{$i} { font-size: #{$i}px; }
 $i: $i - 2;
+}
+
+#headerwrap {
+	background: url(/images/banner.png) no-repeat center top;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 500px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+//test
+
+.gallery-title
+{
+    font-size: 36px;
+    color: #2C3E50;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+.gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    border-bottom: 1px solid #5e5e5e;
+}
+.filter-button
+{
+    font-size: 18px;
+    border: 1px solid #2C3E50;
+    border-radius: 5px;
+    text-align: center;
+    color: #2C3E50;
+    margin-bottom: 30px;
+
+}
+.filter-button:hover
+{
+    font-size: 18px;
+    border: 1px solid #2C3E50;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #2C3E50;
+
+}
+.filter-button.active
+{
+    background-color: #2C3E50;
+    color: white;
+}
+.port-image
+{
+    width: 100%;
+}
+
+.gallery_product
+{
+    margin-bottom: 30px;
 }
