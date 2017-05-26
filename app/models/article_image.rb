@@ -17,6 +17,7 @@
 #  fk_rails_95824e00d3  (article_id => articles.id)
 #
 
+
 class ArticleImage < ApplicationRecord
   belongs_to :article, required: false
 

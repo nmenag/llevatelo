@@ -19,6 +19,7 @@
 #  fk_rails_d15744e438  (user_id => users.id)
 #
 
+
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do

@@ -24,6 +24,7 @@
 #  fk_rails_af09d53ead  (category_id => categories.id)
 #
 
+
 FactoryGirl.define do
   factory :article do
     name { Faker::Commerce.product_name }

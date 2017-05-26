@@ -17,6 +17,7 @@
 #  fk_rails_95824e00d3  (article_id => articles.id)
 #
 
+
 FactoryGirl.define do
   factory :article_image do
     image_file_name {  File.open(File.join(Rails.root, 'public', 'images', 'cover.png')) }

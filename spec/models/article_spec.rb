@@ -24,6 +24,7 @@
 #  fk_rails_af09d53ead  (category_id => categories.id)
 #
 
+
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do

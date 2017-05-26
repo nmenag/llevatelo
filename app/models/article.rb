@@ -24,6 +24,7 @@
 #  fk_rails_af09d53ead  (category_id => categories.id)
 #
 
+
 class Article < ApplicationRecord
   belongs_to :user
   belongs_to :category, optional: true

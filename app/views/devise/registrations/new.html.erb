@@ -14,6 +14,9 @@
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <% devise_error_messages! %>
 								<h5>Para el registro es necesario especificar uno de los dos ya sea el correo electronico o el numero telefonico</h5>
+								<div class="form-group">
+                  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre completo" %>
+                </div>
                 <div class="form-group">
                   <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo electronico" %>
                 </div>

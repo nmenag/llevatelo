@@ -22,6 +22,7 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  picture                :string
+#  name                   :string
 #
 # Indexes
 #
@@ -29,6 +30,7 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
+
 
 FactoryGirl.define do
   factory :user do

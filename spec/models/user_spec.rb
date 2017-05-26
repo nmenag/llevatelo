@@ -22,6 +22,7 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  picture                :string
+#  name                   :string
 #
 # Indexes
 #
@@ -30,12 +31,14 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
   context 'db' do
     context 'columns' do
+      it { should have_db_column(:name).of_type(:string) }
       it { should have_db_column(:email).of_type(:string).with_options(default: "") }
       it { should have_db_column(:encrypted_password).of_type(:string).with_options(default: "", null: false) }
       it { should have_db_column(:reset_password_token).of_type(:string) }

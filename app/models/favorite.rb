@@ -19,6 +19,7 @@
 #  fk_rails_d15744e438  (user_id => users.id)
 #
 
+
 class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :favorited, polymorphic: true

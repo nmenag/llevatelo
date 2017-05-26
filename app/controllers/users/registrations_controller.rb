@@ -40,7 +40,7 @@ before_action :configure_account_update_params, only: [:update]
   private
 
   def sign_up_params
-    params.require(:user).permit(:email, :phone, :password, :password_confirmation, :picture)
+    params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :picture)
   end
 
   def after_update_path_for(resource)
@@ -56,7 +56,7 @@ before_action :configure_account_update_params, only: [:update]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :phone, :picture])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :phone, :picture])
   end
 
   def update_resource(resource, params)

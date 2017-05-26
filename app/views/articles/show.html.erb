@@ -44,17 +44,18 @@
     <div class='col-md-3'>
       <aside class='contact-info'>
         <div class="details">
+          <p class="name">Contacta a <%= display_article_user(@article.user) %></p>
           <p class="name"><%= image_tag @article.user.picture,  class: 'img-circle img-responsive' %></p>
         </div>
+
+
         <% if user_signed_in? %>
-          <div class="details">
-            <p class="name"><%= @article.user.email %></p>
-          </div>
           <div class="phone">
             <strong class="fa fa-phone"></strong>
             <a href="javascript:void(0)"><%= @article.user.phone %></a>
           </div>
         <% end %>
+
         <div class="offer-type">
           <p><%= badge_offer_type_button(@article.offer_type) %></p>
         </div>

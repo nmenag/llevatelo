@@ -8,5 +8,4 @@ module FavoritesHelper
       end
     end
   end
-
 end
