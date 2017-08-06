@@ -1,15 +1,97 @@
 <!-- Portfolio Grid Section -->
 <section id="articles">
-  <div class="container">
+  <br/>
+  
+<!------------------------Menu------------------------------>
+<div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="title">Articulos</h2>
-        <hr class="star-primary">
+
+        <div align="center">
+            <button class="btn btn-default filter-button active" data-filter="all">Destacado</button>
+            <button class="btn btn-default filter-button" data-filter="Regalo">Regalo</button>
+            <button class="btn btn-default filter-button" data-filter="Trueque">Trueque</button>
+            <button class="btn btn-default filter-button" data-filter="Necesito">Necesito</button>
+        </div>
+        <br/>
+        
+        <div class="gallery_product col-lg-12 col-md-4 col-sm-4 col-xs-6 filter all" id="TEST">
+        <div class="row">
+            <div class="col-lg-12 text-lef">
+                <h2 class="title">Lo Nuevo</h2>
+                <hr class="star-primary"/>
+            </div>
+        </div>
+        <div class="row text-center list-articles">
+                <% Article.pusblish_articles(current_user).each do |article| %>
+                    <div class="col-md-4 col-sm-6">
+                        <%=link_to article_path(article) do %>
+                        <div class="thumbnail">
+                            <%= image_tag display_image_article(article), class: 'img-responsive' %>
+                                <div class="caption">
+                                    <h5><%= article.name%> (<%= text_location(article.status) %>)</h5>
+                                    <p>
+                                        <%=truncate(article.description, length: 100) %>
+                                    </p>
+                                </div>
+                            <div class="ratings">
+                                <p class="pull-right">
+                                    <%=badge_offer_type_button(article.offer_type) %>
+                                </p>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                    <% end %>
+            </div>
+            <!-- end row-->
+            <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
+          <%= link_to 'Ver mas', articles_path, class: "btn btn-lg btn-outline" %>
+            </div> -->
+
+        </div>
+        
+    <!--regalo---->    
+     <div class="gallery_product col-lg-12 col-md-4 col-sm-4 col-xs-6 filter Regalo">
+        <div class="row">
+           <div class="col-lg-12 text-lef">
+             <h2 class="title">Regalo</h2>
+             <hr class="star-primary"/>
+          </div>
+        </div>
+    <!-- Page Features -->
+        <div class="row text-center list-articles">
+          <% Article.gift_articles.each do |article| %>
+            <div class="col-md-4 col-sm-6">
+              <%= link_to article_path(article) do %>
+                <div class="thumbnail">
+                  <%= image_tag display_image_article(article), class: 'img-responsive' %>
+                  <div class="caption">
+                    <h5><%= article.name %> (<%= text_location(article.status) %>)</h5>
+                    <p><%= truncate(article.description, length: 100) %></p>
+                  </div>
+                  <div class="ratings">
+                    <p class="pull-right"><%= badge_offer_type_button(article.offer_type) %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        <% end %>
+        </div><!-- end row-->
+    </div>
+<!--------------/regalo---------------->
+        
+        
+         <!--------------trueque---------------->
+        <div class="gallery_product col-lg-12 col-md-4 col-sm-4 col-xs-6 filter Trueque">
+         <div class="row">
+      <div class="col-lg-12 text-lef">
+        <h2 class="title">Trueques</h2>
+        <hr class="star-primary"/>
       </div>
     </div>
     <!-- Page Features -->
     <div class="row text-center list-articles">
-      <% Article.pusblish_articles(current_user).each do |article| %>
+      <% Article.barter_articles.each do |article| %>
         <div class="col-md-4 col-sm-6">
           <%= link_to article_path(article) do %>
             <div class="thumbnail">
@@ -26,8 +108,164 @@
         </div>
       <% end %>
     </div><!-- end row-->
+        </div>
+         <!--------------/trueque---------------->
+        
+        <!--------------Necesito---------------->
+        <div class="gallery_product col-lg-12 col-md-4 col-sm-4 col-xs-6 filter Necesito">
+        <div class="row">
+      <div class="col-lg-12 text-lef">
+        <h2 class="title">Necesito</h2>
+        <hr class="star-primary"/>
+      </div>
+    </div>
+    <!-- Page Features -->
+    <div class="row text-center list-articles">
+      <% Article.want_articles.each do |article| %>
+        <div class="col-md-4 col-sm-6">
+          <%= link_to article_path(article) do %>
+            <div class="thumbnail">
+              <%= image_tag display_image_article(article), class: 'img-responsive' %>
+              <div class="caption">
+                <h5><%= article.name %> (<%= text_location(article.status) %>)</h5>
+                <p><%= truncate(article.description, length: 100) %></p>
+              </div>
+              <div class="ratings">
+                <p class="pull-right"><%= badge_offer_type_button(article.offer_type) %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div><!-- end row-->
+        </div>
+        
+        
+    </div>
+</div>  
+  
+  
+  
+  <!--regalos-->
+  <div class="container" id="regalo">
+   
     <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
       <%= link_to 'Ver mas', articles_path, class: "btn btn-lg btn-outline" %>
     </div> -->
   </div>
+  <!---/regalos--->
+  
+  <!--Trueque-->
+  <div class="container" id="trueque">
+   
+    <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
+      <%= link_to 'Ver mas', articles_path, class: "btn btn-lg btn-outline" %>
+    </div> -->
+  </div>
+  <!---/Trueque--->
+  
+  
+  <!--Necesito-->
+  <div class="container" id="necesito">
+    
+    <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
+      <%= link_to 'Ver mas', articles_path, class: "btn btn-lg btn-outline" %>
+    </div> -->
+  </div>
+  <!---/Necesito--->
+  
+  
+</section>
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>PASOS PARA LLEVARTELO</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12  col-lg-offset-1">
+            <div class="col-lg-2 portfolio-item">
+                <img src="/images/Abaut/registro.png" class="img-responsive img-circle center-block">
+                <p class="text-center" style="font-size: 18px;">1. Registrate en llevatelo.co</p>
+            </div>
+            <div class="col-lg-2 portfolio-item">
+                <img src="/images/Abaut/subir.png" class="img-responsive img-circle center-block">
+                <p class="text-center" style="font-size: 18px;">2. Sube lo que quieras intercambiar y espera a que te contacten</p>
+            </div>
+            <div class="col-lg-2 portfolio-item">
+                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <img src="/images/Abaut/buscar.png" class="img-responsive img-circle center-block">
+                </a>
+                <p class="text-center" style="font-size: 18px;">3. Y/o buscar algo que te interese y has una oferta a cambio</p>
+            </div>
+  
+            <div class="col-lg-2 portfolio-item">
+                <img src="/images/Abaut/contacto.png" class="img-responsive img-circle center-block">
+                <p class="text-center" style="font-size: 18px;">4. Contacta a un usuario con quien hacer el intercambio</p>
+            </div>
+            <div class="col-lg-2 portfolio-item">
+                <img src="/images/Abaut/encuentro.png" class="img-responsive img-circle center-block">
+                <p class="text-center" style="font-size: 18px;">5. Ponerse de acuerdo para hacer intercambio en vivo o hacer envio</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <i class="fa fa-handshake-o size-120 center-block" style="color: #015F5F;"></i>
+                </div>
+                <div class="elementor-widget-container">
+                    <div class="elementor-text-editor elementor-clearfix">
+                        <p style="text-align: center;"><strong>NUESTRA INTENCIÓN</strong></p>
+                            <P class="text-center" style="font-size:16.8px;">Cambiar es darle nueva vida a un objeto lo que significa un sustancial ahorro de energía y recursos, así que ayúdanos a promover el trueque entre tus conocidos y cambiarle la vida a más personas.</P>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <i class="fa fa-puzzle-piece size-120" style="color: #015F5F;"></i>
+                </div>
+                <div class="elementor-text-editor elementor-clearfix">
+                    <p style="text-align: center;"><strong>SUGERENCIAS PARA CAMBIAR</strong></p>
+                    <p style="text-align: center;">
+                      <big>
+                      <ol class="text-left">
+                        <li>Subir tus datos reales.
+                        </li>    
+                        <li>Ser honesto.
+                        </li>
+                        <li>Intercambiar cosas en buen estado.
+                        </li>
+                        <li>Divertirte y recomendar la página a tus amigos.
+                        </li>
+                        <li>Cumplir con tu palabra.
+                        </li>
+                        <li>Promover el trueque y el reuso en tu comunidad.
+                        </li>
+                      </ol>
+                    </big>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <i class="fa fa-gift size-120 center-block" style="color: #015F5F;"></i>
+                </div>
+                <div class="elementor-widget-container">
+                    <div class="elementor-text-editor elementor-clearfix">
+                        <p style="text-align: center;"><strong>NUESTRA INTENCIÓN</strong></p>
+                            <P class="text-center" style="font-size:16.8px;">Anímate a publicar todo lo que quieras, intercambiar o lo que no utilizas y cambialo por lo que necesitas o quieres sin gastar dinero. Publica en LLevatelo.co todo los anuncios de intercambio que quieras, es muy sencillo, sin registros y por supuesto todo Gratis!!</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
