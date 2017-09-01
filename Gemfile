@@ -75,6 +75,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web', '~> 1.3'
   gem 'better_errors', '~> 2.3'
+  gem 'binding_of_caller', '~> 0.7.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

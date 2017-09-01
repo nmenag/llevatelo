@@ -1,0 +1,20 @@
+<section id="regalo" class="section background-gray-lightest">
+  <div class="container">
+    <div class="row text-center">
+      <h2>Ultimos Artículos </h2>
+      <% @articles.each_slice(4) do |articles| %>
+        <div class="row text-center">
+          <% articles.each do |article| %>
+            <%= render 'landing/shared/article', { article: article } %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="row text-center">
+        <div class="col-md-12">
+          <a class="btn btn-primary">Ver Mas artículos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

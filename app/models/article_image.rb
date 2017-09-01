@@ -24,4 +24,5 @@ class ArticleImage < ApplicationRecord
   validates :image_file_name, presence: true
 
   mount_uploader :image_file_name, ImageArticleUploader
+
 end
