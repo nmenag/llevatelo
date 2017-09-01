@@ -47,6 +47,10 @@ GEM
     autoprefixer-rails (6.7.5)
       execjs
     bcrypt (3.1.11)
+    better_errors (2.3.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.3)
@@ -70,6 +74,7 @@ GEM
     cliver (0.3.2)
     codeclimate-test-reporter (1.0.6)
       simplecov
+    coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -88,6 +93,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.3)
     docile (1.1.5)
+    erubi (1.6.1)
     erubis (2.7.0)
     excon (0.55.0)
     execjs (2.7.0)
@@ -275,6 +281,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (~> 2.7, >= 2.7.1)
   autoprefixer-rails
+  better_errors (~> 2.3)
   bootstrap-sass (~> 3.2.0)
   byebug
   capybara (~> 2.7, >= 2.7.1)
