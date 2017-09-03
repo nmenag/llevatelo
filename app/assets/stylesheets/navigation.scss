@@ -1,3 +1,18 @@
+.header {
+  width: 100%;
+}
+
+ul.dropdown-menu li a {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+ul.dropdown-menu li a:hover {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
 .navbar {
   margin-bottom: 0;
   border-radius: 0;

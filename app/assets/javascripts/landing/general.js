@@ -3,12 +3,13 @@ $(function(){
 });
 
 function scrollTo(){
-  $('.scroll-to').click(function (event) {
-    event.preventDefault();
+  $('.scroll-to').click(function(e){
+    e.preventDefault();
     var full_url = this.href;
     var parts = full_url.split("#");
     var trgt = parts[1];
-
-    $('body').scrollTo($('#' + trgt), 800, {offset: -80});
+    $('html, body').animate({
+      scrollTop: $('#' + trgt).offset().top
+    }, 1000);
   });
 }

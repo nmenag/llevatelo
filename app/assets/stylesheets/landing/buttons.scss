@@ -31,3 +31,189 @@
   background-color: transparent;
   border-color: #ff7473;
 }
+
+.btn-ghost {
+  color: #ff7473;
+  background-color: transparent;
+  border-color: #ff7473;
+}
+.btn-ghost:hover,
+.btn-ghost:focus,
+.btn-ghost:active,
+.btn-ghost.active,
+.open .dropdown-toggle.btn-ghost {
+  color: #ff7473;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #ff3736;
+}
+.btn-ghost:active,
+.btn-ghost.active,
+.open .dropdown-toggle.btn-ghost {
+  background-image: none;
+}
+.btn-ghost.disabled,
+.btn-ghost[disabled],
+fieldset[disabled] .btn-ghost,
+.btn-ghost.disabled:hover,
+.btn-ghost[disabled]:hover,
+fieldset[disabled] .btn-ghost:hover,
+.btn-ghost.disabled:focus,
+.btn-ghost[disabled]:focus,
+fieldset[disabled] .btn-ghost:focus,
+.btn-ghost.disabled:active,
+.btn-ghost[disabled]:active,
+fieldset[disabled] .btn-ghost:active,
+.btn-ghost.disabled.active,
+.btn-ghost[disabled].active,
+fieldset[disabled] .btn-ghost.active {
+  background-color: transparent;
+  border-color: #ff7473;
+}
+.btn-ghost .badge {
+  color: transparent;
+  background-color: #ff7473;
+}
+.btn-ghost:hover,
+.btn-ghost:focus,
+.btn-ghost:active,
+.btn-ghost.active,
+.open .dropdown-toggle.btn-ghost {
+  color: #fff;
+  background-color: #ff7473;
+  border-color: #ff7473;
+}
+.btn-white {
+  color: #ffffff;
+  background-color: transparent;
+  border-color: #ffffff;
+}
+.btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active,
+.open .dropdown-toggle.btn-white {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #e0e0e0;
+}
+
+.btn-white:active, .btn-white.active,
+.open .dropdown-toggle.btn-white {
+  background-image: none;
+}
+
+.btn-white.disabled,
+.btn-white[disabled],
+fieldset[disabled] .btn-white,
+.btn-white.disabled:hover,
+.btn-white[disabled]:hover,
+fieldset[disabled] .btn-white:hover,
+.btn-white.disabled:focus,
+.btn-white[disabled]:focus,
+fieldset[disabled] .btn-white:focus,
+.btn-white.disabled:active,
+.btn-white[disabled]:active,
+fieldset[disabled] .btn-white:active,
+.btn-white.disabled.active,
+.btn-white[disabled].active,
+fieldset[disabled] .btn-white.active {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+.btn-white .badge {
+  color: transparent;
+  background-color: #ffffff;
+}
+
+.btn-white:hover,
+.btn-white:focus,
+.btn-white:active,
+.btn-white.active,
+.open .dropdown-toggle.btn-white {
+  color: #ffffff;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+/*
+=====================
+SOCIAL LINKS
+=====================
+
+*/
+.contact-form {
+  margin-bottom: 20px;
+}
+p.social {
+  text-align: center;
+  margin-top: 20px;
+}
+p.social a {
+  margin: 0 10px 0 0;
+  color: #fff;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  line-height: 40px;
+  font-size: 15px;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  vertical-align: bottom;
+  border: solid 1px #ccc;
+}
+p.social a i {
+  vertical-align: bottom;
+  line-height: 40px;
+}
+p.social a.facebook {
+  background-color: #4460ae;
+  border-color: #4460ae;
+}
+p.social a.gplus {
+  background-color: #c21f25;
+  border-color: #c21f25;
+}
+p.social a.twitter {
+  background-color: #3cf;
+  border-color: #3cf;
+}
+p.social a.instagram {
+  background-color: #cd4378;
+  border-color: #cd4378;
+}
+p.social a.email {
+  background-color: #4a7f45;
+  border-color: #4a7f45;
+}
+p.social a.link {
+  background-color: #871AFF;
+  border-color: #871AFF;
+}
+p.social.social--outline a {
+  background: transparent;
+}
+p.social.social--outline a.facebook {
+  color: #4460ae;
+  border-color: #4460ae;
+}
+p.social.social--outline a.gplus {
+  color: #c21f25;
+  border-color: #c21f25;
+}
+p.social.social--outline a.twitter {
+  color: #3cf;
+  border-color: #3cf;
+}
+p.social.social--outline a.instagram {
+  color: #cd4378;
+  border-color: #cd4378;
+}
+p.social.social--outline a.email {
+  color: #4a7f45;
+  border-color: #4a7f45;
+}
+p.social.social--outline a.link {
+  color: #871AFF;
+  border-color: #871AFF;
+}
