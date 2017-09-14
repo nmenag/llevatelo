@@ -16,3 +16,17 @@
 .thumbnail:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.article-heading {
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  font-weight: 300;
+  color: #999999;
+}
+
+.hero-article{
+  .btn-request, .btn-given, .btn-change {
+    margin-bottom: 0px;
+    padding:5px;
+  }
+}
