@@ -39,6 +39,8 @@ class Article < ApplicationRecord
 
   scope :pusblish_articles, -> (user) { where.not(user: user) }
 
+  default_scope { order(:updated_at) }
+
   after_initialize :default_values
 
   accepts_nested_attributes_for :article_images, reject_if: :all_blank, allow_destroy: true
