@@ -1,34 +1,15 @@
-<div class="container">
-  <h3 class="heading">Articulos a su disposición</h3>
-  <div class="row text-center">
-      <div class="pages">
-        <ul class="pagination">
-          <li><a href="#">«</a></li>
-          <li class="active"> <a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">»</a></li>
-        </ul>
-      </div>
-
-    <% @articles.each_slice(4) do |articles| %>
-      <div class="row text-center">
-        <% articles.each do |article| %>
-          <%= render 'landing/shared/article', { article: article } %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <!-- <div class="pages">
-      <ul class="pagination">
-        <li><a href="#">«</a></li>
-        <li class="active"> <a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">»</a></li>
-      </ul>
-    </div> -->
-  </div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Ultimos Artículos</h2>
+    <div class="row">
+      <% @articles.each_slice(4) do |articles| %>
+        <div class="row text-center">
+          <% articles.each do |article| %>
+            <%= render 'shared/article', { article: article } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 </div>
+</div>
+

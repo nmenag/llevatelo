@@ -1,63 +1,31 @@
-.articles {
-  padding-bottom: 50px;
-
-  .date-info{
-    font-size: 14px;
-  }
-
-  .contact-info {
-    background: $gray-lighter;
-    padding: 20px;
-    font-size: 18px
-  }
-
-  .caption-full {
-    padding: 20px;
-  }
-
-  .time-ago {
-    margin-bottom: 20px;
-    color: $gray-light;
-  }
-  .thumbnail {
-    .display-images {
-      margin-top: 20px;
-    }
+#all {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
-.articles-listing {
-  border: solid 1px #eee;
-  border-bottom: none;
-  padding-top: 30px;
-  padding-bottom: 10px;
-  border-bottom: solid 1px #eee;
-  margin-bottom: 20px;
-  .img-responsive {
-    max-width: 85px;
-    max-height: 85px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-  }
-  .empty-article{
-    padding: 10px;
-  }
+.image-article {
+  height: 174px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  background-size: cover;
 }
 
-.modal-header {
-  background: $gray-lighter;
+.thumbnail:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.article-form{
-  .add-articles {
-    clear:both;
-    .image-placeholder {
-      opacity: 0.5;
-      filter: alpha(opacity=50);
-    }
+.article-heading {
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  color: #999999;
+}
 
-    .actions{
-      padding-top: 5px;
-    }
+.hero-article{
+  .btn-request, .btn-given, .btn-change {
+    margin-bottom: 0px;
+    padding:5px;
   }
 }

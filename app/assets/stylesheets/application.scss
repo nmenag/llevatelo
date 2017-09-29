@@ -2,14 +2,10 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import 'variables';
-@import 'mixins';
+@import 'buttons';
 @import 'base';
 @import 'buttons';
-@import 'media-queries';
 @import 'navigation';
-@import 'flash';
-@import 'pages';
-@import 'login';
+@import 'base';
+@import 'custom_app';
 @import 'articles';
-@import 'smoothproducts';
