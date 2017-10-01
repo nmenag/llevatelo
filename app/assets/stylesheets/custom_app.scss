@@ -2,10 +2,6 @@
   padding: 20px;
 }
 
-// .sp-wrap{
-//   float: none;
-// }
-
 #productMain .jumbotron p{
   font-size: 14px
 }
@@ -116,4 +112,34 @@
 }
 .box.no-border {
   border: none;
+}
+
+ /* Shrink wrap strategy 1 */
+.easyzoom {
+  float: left;
+}
+.easyzoom img {
+  display: block;
+}
+/* Shrink wrap strategy 2 */
+.easyzoom {
+  display: inline-block;
+}
+.easyzoom img {
+  vertical-align: bottom;
+}
+
+.thumbnails li {
+  display: inline-block;
+  width: 24%;
+}
+
+.thumbnails img {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+ul, ol {
+  padding-left: 1.5em;
 }

@@ -1,0 +1,50 @@
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" align="center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+              <div class="row">
+                <div class="col-sm-6 col-md-4">
+                  <%= image_tag @article.image_main.image_file_name.url, class: 'img-rounded img-responsive' %>
+                </div>
+                <div class="col-sm-6 col-md-8">
+                  <h4><%= @article.user.name %></h4>
+                  <small>
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                    <cite title="<%= @article.location %>"><%= @article.location %></cite>
+                  </small>
+                  <p>
+                    <i class="glyphicon glyphicon-envelope"></i>
+                    <%= @article.user.email %>
+                    <br />
+                    <i class="glyphicon glyphicon-gift"></i>
+                    <%= @article.user.phone %>
+                  </p>
+                  <!-- Split button -->
+                  <!-- <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Social</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span><span class="sr-only">Social</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Twitter</a></li>
+                      <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
+                      <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Github</a></li>
+                    </ul>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

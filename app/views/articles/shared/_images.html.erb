@@ -1,0 +1,18 @@
+<div class="col-sm-6">
+  <div id="mainImage">
+    <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
+      <%= link_to(@article.image_main.image_file_name.url, data:{ standard: @article.image_main.image_file_name.url }) do %>
+        <%= image_tag @article.image_main.image_file_name.url, class: 'img-responsive' %>
+      <% end %>
+    </div>
+  </div>
+  <ul class="thumbnails">
+    <% @article.article_images.each do |article_image| %>
+      <li>
+        <%= link_to(article_image.image_file_name.url, data:{ standard: article_image.image_file_name.url }) do %>
+          <%= image_tag article_image.image_file_name.url %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

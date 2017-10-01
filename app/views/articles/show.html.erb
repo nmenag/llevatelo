@@ -1,65 +1,65 @@
-<div class="container articles">
-  <div class="row">
-    <div class="col-md-9">
-      <div class="thumbnail">
-        <div class='row'>
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class='display-images'>
-              <% if @article.article_images.present? %>
-                <div class="sp-wrap">
-                  <% @article.article_images.each do |article_image|%>
-                    <a href="<%= article_image.image_file_name %>">
-                      <img src="<%= article_image.image_file_name %>" class="img-responsive" alt="">
-                    </a>
-                  <% end %>
-                </div>
-              <% else %>
-                <%= image_tag display_image_article(@article), class: 'img-responsive' %>
-              <% end %>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row" id="productMain">
+          <%= render 'articles/shared/images' %>
+          <div class="col-sm-6">
+            <div class="description-article">
+              <div class="sizes">
+                <h3><%= @article.name %></h3>
+                <%= badge_offer_type_button(@article.offer_type) %><br/>
+                <span class="time-ago">
+                  <i class="fa fa-clock-o"></i> <%= time_ago_in_words(@article.updated_at) %>
+                </span>
+                </br>
+
+                <span class="time-ago">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @article.location %>
+                </span>
+              </div>
+
+              <div class="text-center actions">
+                <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#login-modal"><i class="fa fa-address-book-o"></i>Contactar</button>
+                <!-- <button type="submit" class="btn btn-info" id ="displayPhone"><i class="fa fa-phone"></i> ver telefono</button> -->
+                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Agregar a mis favoritos"><i class="fa fa-heart-o"></i></button>
+              </div>
+              <div class="text-center">
+                <a class="scroll-to" href="#details">Ver Descripción</a>
+              </div>
+            </div>
+            <hr/>
+
+            <div class="row" id="thumbs">
+              <div class="jumbotron">
+                <p><b>Llevatelo.co</b> NO participa en ninguna negociación,
+                  Sólo se limita a la publicación de los artículos de sus usuarios.
+                </p>
+              </div>
             </div>
           </div>
-          <div class='col-lg-6 col-md-6 col-sm-5'>
-            <h2><%= @article.name %>
-              <%= favorited_button(@article) %>
-            </h2>
-
-            <span class='time-ago'>
-              <i class='fa fa-clock-o'></i> Actualizado hace <%= time_ago_in_words(@article.updated_at) %>
-            </span>
-            <br>
-            <span class='time-ago'>
-              <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @article.location %>
-            </span>
-
-            <h4 class="pull-right"><%= text_location(@article.status) %></h4>
-
-            <div class="caption-full">
-              <p><%= @article.description %></p>
-            </div>
-          </div>
+        </div><!-- end productMain-->
+        <hr/>
+        <div id="details">
+          <p>
+            <h4>Descripción</h4>
+          <p><%= @article.description %></p>
+        </div>
+        <div class="social" id="product-social">
+          <h4>Compartir</h4>
+          <p>
+            <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="external gplus" data-animate-hover="pulse" style="opacity: 1;"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="external twitter" data-animate-hover="pulse" style="opacity: 1;"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+          </p>
         </div>
       </div>
     </div>
-
-    <div class='col-md-3'>
-      <aside class='contact-info'>
-        <div class="details">
-          <p class="name">Contacta a <%= display_article_user(@article.user) %></p>
-          <p class="name"><%= image_tag @article.user.picture,  class: 'img-circle img-responsive' %></p>
-        </div>
-
-
-        <% if user_signed_in? %>
-          <div class="phone">
-            <strong class="fa fa-phone"></strong>
-            <a href="javascript:void(0)"><%= @article.user.phone %></a>
-          </div>
-        <% end %>
-
-        <div class="offer-type">
-          <p><%= badge_offer_type_button(@article.offer_type) %></p>
-        </div>
-      </aside>
-    </div>
   </div>
-</div> <!-- /.container -->
+</section>
+<!-- end section -->
+
+<!-- BEGIN # MODAL LOGIN -->
+<%= render 'articles/shared/modal_information' %>
+<!-- END # MODAL LOGIN -->
