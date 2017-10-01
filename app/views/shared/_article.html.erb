@@ -5,8 +5,8 @@
     <%= badge_offer_type_button(article.offer_type) %>
     <div class="caption">
       <p>
-        <a class="asset-link-location">Bogota</a>
-        <a href="shop-detail.html" class="btn btn-default"><b>Mas Info</b></a>
+        <a class="asset-link-location"><%= article.location %></a>
+        <%= link_to 'Mas Info','#', class: 'btn btn-default' %>
       </p>
     </div>
   </div>
