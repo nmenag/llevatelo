@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  resources :pages, only:[]
-
   devise_for :users, :controllers => { registrations: 'users/registrations', confirmations: 'users/confirmations' }
   resources :articles
 
