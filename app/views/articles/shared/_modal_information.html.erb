@@ -19,11 +19,15 @@
                     <cite title="<%= @article.location %>"><%= @article.location %></cite>
                   </small>
                   <p>
-                    <i class="glyphicon glyphicon-envelope"></i>
-                    <%= @article.user.email %>
-                    <br />
-                    <i class="glyphicon glyphicon-gift"></i>
-                    <%= @article.user.phone %>
+                    <% if @article.user.email.present? %>
+                      <i class="glyphicon glyphicon-envelope"></i>
+                      <%= @article.user.email %>
+                      <br />
+                    <% end %>
+                    <% if @article.user.phone.present? %>
+                      <i class="glyphicon glyphicon-gift"></i>
+                      <%= @article.user.phone %>
+                    <% end %>
                   </p>
                   <!-- Split button -->
                   <!-- <div class="btn-group">
