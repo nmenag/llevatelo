@@ -1,15 +1,17 @@
-<div class="row">
-  <div class="col-md-12">
-    <h2>Ultimos Artículos</h2>
-    <div class="row">
-      <% @articles.each_slice(4) do |articles| %>
-        <div class="row text-center">
-          <% articles.each do |article| %>
-            <%= render 'shared/article', { article: article } %>
-          <% end %>
-        </div>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Ultimos Artículos</h2>
+      <div class="row">
+        <% @articles.each_slice(4) do |articles| %>
+          <div class="row text-center">
+            <% articles.each do |article| %>
+              <%= render 'shared/article', { article: article } %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-</div>
+  </div>
 </div>
 

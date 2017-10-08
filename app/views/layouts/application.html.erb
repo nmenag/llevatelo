@@ -21,13 +21,9 @@
   <body>
     <%= render 'shared/navigation' %>
     <%= flash_messages %>
-
-    <section class="section">
-      <div class="container">
-        <%= yield %>
-      </div>
+    <section class="all">
+      <%= yield %>
     </section>
-
     <%= render 'shared/footer' %>
   </body>
 </html>
