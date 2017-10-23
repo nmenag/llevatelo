@@ -1,71 +1,68 @@
 <div class="container article-form">
   <div class="row">
-		<div class='col-md-10 col-md-offset-1'>
+		<div class='col-md-12'>
       <div class='back-link'>
-      <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Volver atras'.html_safe, :back %>
+        <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Volver atras'.html_safe, :back %>
       </div>
-			<div class="panel panel-login">
-				<div class="panel-heading">
-					<div class="row">
-						<h4><%= @article.new_record?  ? 'Nuevo Articulo' : 'Editar Articulo' %></h4>
-					</div>
-					<hr>
-				</div>
-				<div class="panel-body">
-          <%= form_for @article, multipart: true do |f| %>
-            <div class='row'>
-              <div class='col-md-6'>
-                <h4>Información Basica</h4>
-                <div class="col-md-12 col-sm-6 col-xs-12">
-            			<div class="form-group">
-            			  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre del articulo" %>
-            			</div>
-            			<div class="form-group">
-            			  <%= f.select :offer_type, generate_list(Article.offer_types) , { include_blank: 'Tipo' },  { class: 'form-control' }  %>
-            			</div>
+      <div class="panel-heading">
+        <h4><%= @article.new_record?  ? 'Publicar Articulo' : 'Editar Articulo' %></h4>
+        <hr>
+      </div>
 
-                  <div class="form-group">
-                    <%= f.select :location, region_country, { include_blank: "Ciudad" },  { class: 'form-control' }  %>
-            			</div>
+      <div class="panel-body">
+        <%= form_for @article, multipart: true do |f| %>
+          <div class='row'>
+            <div class='col-md-6 add-articles'>
+              <div class="row text-center">
+                <%= f.nested_fields_for :article_images, wrapper_tag: :div do |ff| %>
+                  <%= render partial: 'articles/shared/article_image_field', locals: {ff: ff }%>
+                <% end %>
 
-            			<div class="form-group">
-            			  <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
-            			</div>
-
-                  <div class="form-group">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                       <h4>Estado del producto</h4>
-                      <%= f.radio_button :status,'available', checked: @article.available?  %>
-                      <%= f.label :status, 'Disponible' %>
-
-                      <%= f.radio_button :status,'reserved', checked: @article.reserved?   %>
-                      <%= f.label :status, 'Reservado' %>
-                    </div>
-            			</div>
-		            </div>
-              </div>
-
-              <div class='col-md-6 add-articles'>
-                <h4>Subir Imagenes</h4>
-                <div class="row text-center">
-                  <%= f.nested_fields_for :article_images, wrapper_tag: :div do |ff| %>
-                    <%= render partial: 'articles/shared/article_image_field', locals: {ff: ff }%>
-                  <% end %>
-
-                  <%=  f.add_nested_fields_link :article_images, '', class: 'hidden' %>
-                </div>
-              </div>
-
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <%= f.button "Guardar", class: "form-control btn btn-info"  %>
+                <%=  f.add_nested_fields_link :article_images, '', class: 'hidden' %>
               </div>
             </div>
-          <% end %>
-				</div>
-			</div>
-		</div>
-	</div>
+
+            <div class='col-md-6'>
+              <h4>Información Basica</h4>
+              <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre del articulo" %>
+                </div>
+                <div class="form-group">
+                  <%= f.select :offer_type, generate_list(Article.offer_types) , { include_blank: 'Tipo' },  { class: 'form-control' }  %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.select :location, region_country, { include_blank: "Ciudad" },  { class: 'form-control' }  %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                      <h4>Estado del producto</h4>
+                    <%= f.radio_button :status,'available', checked: @article.available?  %>
+                    <%= f.label :status, 'Disponible' %>
+
+                    <%= f.radio_button :status,'reserved', checked: @article.reserved?   %>
+                    <%= f.label :status, 'Reservado' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-sm-offset-4">
+              <%= f.button "Guardar", class: "btn-lg btn btn-primary"  %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <%= render 'articles/shared/preview_modal' %>
