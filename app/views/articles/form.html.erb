@@ -1,6 +1,6 @@
-<div class="container article-form">
+<div class="container">
   <div class="row">
-		<div class='col-md-12'>
+    <div class='col-md-12'>
       <div class='back-link'>
         <%= link_to '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Volver atras'.html_safe, :back %>
       </div>
@@ -8,61 +8,72 @@
         <h4><%= @article.new_record?  ? 'Publicar Articulo' : 'Editar Articulo' %></h4>
         <hr>
       </div>
+    </div>
+  </div>
 
-      <div class="panel-body">
-        <%= form_for @article, multipart: true do |f| %>
-          <div class='row'>
-            <div class='col-md-6 add-articles'>
-              <div class="row text-center">
-                <%= f.nested_fields_for :article_images, wrapper_tag: :div do |ff| %>
-                  <%= render partial: 'articles/shared/article_image_field', locals: {ff: ff }%>
-                <% end %>
-
-                <%=  f.add_nested_fields_link :article_images, '', class: 'hidden' %>
-              </div>
-            </div>
-
-            <div class='col-md-6'>
-              <h4>Información Basica</h4>
-              <div class="col-md-12 col-sm-6 col-xs-12">
-                <div class="form-group">
-                  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre del articulo" %>
-                </div>
-                <div class="form-group">
-                  <%= f.select :offer_type, generate_list(Article.offer_types) , { include_blank: 'Tipo' },  { class: 'form-control' }  %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.select :location, region_country, { include_blank: "Ciudad" },  { class: 'form-control' }  %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
-                </div>
-
-                <div class="form-group">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                      <h4>Estado del producto</h4>
-                    <%= f.radio_button :status,'available', checked: @article.available?  %>
-                    <%= f.label :status, 'Disponible' %>
-
-                    <%= f.radio_button :status,'reserved', checked: @article.reserved?   %>
-                    <%= f.label :status, 'Reservado' %>
-                  </div>
-                </div>
-              </div>
+  <%= form_for @article, multipart: true do |f| %>
+    <div class="row">
+      <div class='col-md-6'>
+        <div class="row text-center">
+          <div class="form-group">
+            <div class="file-loading">
+              <label>Preview File Icon</label>
+              <input id="file-3" type="file" multiple accept='image/*'>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12 col-sm-offset-4">
-              <%= f.button "Guardar", class: "btn-lg btn btn-primary"  %>
-            </div>
+          <!-- <%= f.nested_fields_for :article_images, wrapper_tag: :div do |ff| %>
+            <%= render partial: 'articles/shared/article_image_field', locals: {ff: ff }%>
+          <% end %>
+
+          <%=  f.add_nested_fields_link :article_images, '', class: 'hidden' %> -->
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <h4>Información Basica</h4>
+        <div class="form-group">
+          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre del articulo" %>
+        </div>
+        <div class="form-group">
+          <%= f.select :offer_type, generate_list(Article.offer_types) , { include_blank: 'Tipo' },  { class: 'form-control' }  %>
+        </div>
+
+        <div class="form-group">
+          <%= f.select :location, region_country, { include_blank: "Ciudad" },  { class: 'form-control' }  %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_area :description, class: "form-control", placeholder: "Descripción" %>
+        </div>
+
+        <% if @article.new_record? %>
+          <div class="form-group accepted-terms">
+            <%= f.radio_button :status,'Estoy seguro que mi articulo publicado cumple con las Políticas de <b>Llevatelo.co</b>.'.html_safe  %>
+            <%= f.label :status, 'Estoy seguro que mi articulo publicado cumple con las Políticas de <b>Llevatelo.co</b>.'.html_safe %>
           </div>
         <% end %>
       </div>
 
-    </div>
-  </div>
+      <div class="text-center">
+        <%= f.button "Guardar", class: "btn-lg btn btn-primary"  %>
+      </div>
+    </div><!-- end row-->
+  <% end %>
 </div>
 
-<%= render 'articles/shared/preview_modal' %>
+<script>
+  $(function(){
+    $("#file-3").fileinput({
+      language: 'es',
+      allowedFileTypes: ["image"],
+      maxFileCount: 5,
+      allowedFileExtensions: ['jpg', 'png', 'gif'],
+      uploadUrl: '/file-upload-batch/2',
+      uploadAsync: false,
+      showCaption: false,
+      showRemove: false,
+      showUpload: false,
+      showClose: false,
+    });
+  });
+</script>
