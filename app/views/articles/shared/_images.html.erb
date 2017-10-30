@@ -1,8 +1,12 @@
 <div class="col-sm-6">
   <div id="mainImage">
     <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
-      <%= link_to(@article.image_main.image_file_name.url, data:{ standard: @article.image_main.image_file_name.url }) do %>
-        <%= image_tag @article.image_main.image_file_name.url, class: 'img-responsive' %>
+      <% if @article.image_main.present? %>
+        <%= link_to(@article.image_main.image_file_name.url, data:{ standard: @article.image_main.image_file_name.url }) do %>
+          <%= image_tag @article.image_main.image_file_name.url, class: 'img-responsive' %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'cover.png', class: 'img-responsive' %>
       <% end %>
     </div>
   </div>
