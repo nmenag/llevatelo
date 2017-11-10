@@ -4,9 +4,15 @@
 }
 
 @media (min-width: 768px) {
+
   .text-intro {
     margin-top: 90px;
   }
+}
+
+body { padding-top: 0px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 40px; }
 }
 
 .text-intro {

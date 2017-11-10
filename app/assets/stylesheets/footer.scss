@@ -1,6 +1,6 @@
 .footer__copyright {
   background: $main-purple;
-  color: #ccc;
+  color: $gray-light;
   padding: 20px 0;
   font-size: 14px;
   line-height: 28px;
@@ -25,13 +25,13 @@ COPYRIGHT
 */
 .copyright {
   margin-top: 40px;
-  color: #999999;
+  color: $gray;
 }
 .copyright p.credit {
   text-align: right;
 }
 .copyright p.credit a {
-  color: #999999;
+  color: $gray;
 }
 @media (max-width: 991px) {
   .copyright p.credit {
