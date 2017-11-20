@@ -13,19 +13,14 @@
 
   <%= form_for @article, multipart: true do |f| %>
     <div class="row">
-      <div class='col-md-6'>
+      <div class='col-md-6 add-articles'>
+        <h4>Subir Imagenes</h4>
         <div class="row text-center">
-          <div class="form-group">
-            <div class="file-loading">
-              <label>Preview File Icon</label>
-              <input id="file-3" type="file" multiple accept='image/*'>
-            </div>
-          </div>
-          <!-- <%= f.nested_fields_for :article_images, wrapper_tag: :div do |ff| %>
+          <%= f.nested_fields_for :article_images, wrapper_tag: :div do |ff| %>
             <%= render partial: 'articles/shared/article_image_field', locals: {ff: ff }%>
           <% end %>
 
-          <%=  f.add_nested_fields_link :article_images, '', class: 'hidden' %> -->
+          <%= f.add_nested_fields_link :article_images, '', class: 'hidden' %>
         </div>
       </div>
 
@@ -48,8 +43,9 @@
 
         <% if @article.new_record? %>
           <div class="form-group accepted-terms">
-            <%= f.radio_button :status,'Estoy seguro que mi articulo publicado cumple con las Políticas de <b>Llevatelo.co</b>.'.html_safe  %>
-            <%= f.label :status, 'Estoy seguro que mi articulo publicado cumple con las Políticas de <b>Llevatelo.co</b>.'.html_safe %>
+            <%= radio_button_tag :status, false %>
+            Estoy seguro que mi articulo publicado cumple con las Políticas de <b>Llevatelo.co</b><br/>
+            <label id="status-error" class="error" for="status"></label>
           </div>
         <% end %>
       </div>
@@ -61,19 +57,4 @@
   <% end %>
 </div>
 
-<script>
-  $(function(){
-    $("#file-3").fileinput({
-      language: 'es',
-      allowedFileTypes: ["image"],
-      maxFileCount: 5,
-      allowedFileExtensions: ['jpg', 'png', 'gif'],
-      uploadUrl: '/file-upload-batch/2',
-      uploadAsync: false,
-      showCaption: false,
-      showRemove: false,
-      showUpload: false,
-      showClose: false,
-    });
-  });
-</script>
+<%= render 'articles/shared/preview_modal' %>

@@ -38,9 +38,9 @@ $(document).on('turbolinks:load', function() {
     rules: {
      'article[name]': 'required',
      'article[offer_type]': 'required',
-     'article[description]': 'required',
      'article[status]': 'required',
-     'article[location]': 'required'
+     'article[location]': 'required',
+     'status': 'required'
     }
   });
 });

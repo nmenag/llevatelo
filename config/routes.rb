@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, :controllers => { registrations: 'users/registrations', confirmations: 'users/confirmations' }
-  resources :articles
+  resources :articles do
+    collection do
+      post :destroy_images
+    end
+  end
 
   get 'my_articles' => 'articles#my_articles'
 

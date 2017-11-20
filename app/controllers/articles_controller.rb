@@ -23,12 +23,14 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.new(article_params)
+
     if @article.save
       flash[:notice] = "Se ha agregado un nuevo articulo"
       redirect_to my_articles_path
     else
+      flash[:notice] = @article.errors.full_messages.first
       5.times { @article.article_images.build }
-      render action: 'new'
+      render 'form'
     end
   end
 
@@ -40,10 +42,12 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+
     if @article.update(article_params)
       flash[:notice] = "Se ha modificado el  articulo #{@article.name}"
       redirect_to my_articles_path
     else
+      flash[:notice] = @article.errors.full_messages.first
       @article.total_images
       render :form
     end
@@ -58,6 +62,9 @@ class ArticlesController < ApplicationController
     end
 
     redirect_to my_articles_path
+  end
+
+  def destroy_images
   end
 
   private

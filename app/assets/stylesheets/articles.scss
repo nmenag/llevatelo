@@ -13,6 +13,11 @@
   background-size: cover;
 }
 
+// .image-content {
+//   width: 213px;
+//   height: 160px;
+// }
+
 .thumbnail:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -155,4 +160,18 @@
   label {
     font-size: 14px;
   }
+}
+
+/*****************************************************/
+
+.js-image-preview {
+  height: 125px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: url("/images/cover.png");
+  background-color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
