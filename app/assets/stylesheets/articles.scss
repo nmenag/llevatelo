@@ -13,11 +13,6 @@
   background-size: cover;
 }
 
-// .image-content {
-//   width: 213px;
-//   height: 160px;
-// }
-
 .thumbnail:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -174,4 +169,25 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.hide-bullets {
+  list-style:none;
+  margin-left: -40px;
+}
+
+#slider-thumbs{
+  .thumbnail {
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  width: 100%;
+}
+#slider-thumbs {
+  height: 320px;
+  overflow-y: scroll;
+  white-space: nowrap;
 }

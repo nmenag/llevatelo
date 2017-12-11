@@ -15,7 +15,4 @@
 //= require turbolinks
 //= require jquery.validate
 //= require nested_form_fields
-//= require easyzoom
-//= require file_input/fileinput
-//= require file_input/es
 //= require_tree .
