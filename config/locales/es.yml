@@ -2,9 +2,9 @@ es:
   activerecord:
     attributes:
       user:
-        email: Correo electronico
+        email: Correo electrónico
         password: contraseña
-        remember_me: Recordame
+        remember_me: Recordarme
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"
