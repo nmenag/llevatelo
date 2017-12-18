@@ -22,7 +22,7 @@ module ApplicationHelper
     flash.each do |msg_type, message|
       concat(
         content_tag(:div, message, class: "col-xs-11 col-sm-4 alert alert-#{bootstrap_class_for(msg_type)} fade in") do
-          concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
+          concat content_tag(:a, 'x', class: "close", data: { dismiss: 'alert'}, aria:{label:'close'} )
           concat message
         end
       )
