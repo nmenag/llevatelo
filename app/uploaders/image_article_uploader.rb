@@ -21,6 +21,18 @@ class ImageArticleUploader < CarrierWave::Uploader::Base
     "/images/" + [version_name, "cover.png"].compact.join('_')
   end
 
+  version :thumb do
+    process :resize_to_fill => [100, 100]
+  end
+
+  version :medium do
+    process :resize_to_fill => [300, 300]
+  end
+
+  version :small do
+    process :resize_to_fill => [140, 140]
+  end
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #

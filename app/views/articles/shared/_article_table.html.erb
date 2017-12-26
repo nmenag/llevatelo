@@ -14,8 +14,8 @@
       <tbody>
         <% articles.each do |article| %>
           <tr>
-            <td style='width: 10%;'><%= image_tag display_image_article(article), class: 'img-responsive' %></td>
-            <td style='width: 10%;'><%= link_to article.name, article_path(article) %></td>
+            <td><%= image_tag(display_image_article(article), class: 'img-responsive image-small') %></td>
+            <td><%= link_to article.name, article_path(article) %></td>
             <td><p style='width: 90%;'>
               <%= article.description %></p>
 
