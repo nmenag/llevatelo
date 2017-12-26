@@ -22,8 +22,7 @@
               <% unless @article.user == current_user %>
                 <div class="text-center actions">
                   <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#login-modal"><i class="fa fa-address-book-o"></i>Contactar</button>
-                  <!-- <button type="submit" class="btn btn-info" id ="displayPhone"><i class="fa fa-phone"></i> ver Teléfono</button> -->
-                  <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Agregar a mis favoritos"><i class="fa fa-heart-o"></i></button>
+                  <%= favorited_button(@article) %>
                 </div>
               <% end %>
               <div class="text-center">
