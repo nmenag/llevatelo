@@ -19,6 +19,13 @@ Rails.application.routes.draw do
     patch 'update', on: :collection
   end
 
+  resources :pages, only:[] do
+    collection do
+      get :terms
+      get :policies
+    end
+  end
+
   resources :favorites, only: [:create, :destroy]
   get 'my_favorites' => 'favorites#my_favorites'
 

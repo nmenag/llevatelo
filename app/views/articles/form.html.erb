@@ -44,7 +44,8 @@
         <% if @article.new_record? %>
           <div class="form-group accepted-terms">
             <%= radio_button_tag :status, false %>
-            Estoy seguro que mi articulo publicado cumple con las Políticas de <b>Llevatelo.co</b><br/>
+            Estoy seguro que mi articulo publicado cumple con los <%= link_to 'Términos y Condiciones de llevatelo.co', terms_pages_path %>
+            <br/>
             <label id="status-error" class="error" for="status"></label>
           </div>
         <% end %>
