@@ -37,9 +37,9 @@ class Article < ApplicationRecord
   enum offer_type: [:gift, :want, :barter]
   enum status: [:reserved, :available]
 
-  scope :pusblish_articles, -> (user) { where.not(user: user) }
-
   default_scope { order(:updated_at) }
+
+  scope :pusblish_articles, -> { where(status: :available) }
 
   after_initialize :default_values
 

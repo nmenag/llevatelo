@@ -2,6 +2,6 @@ class LandingController < ApplicationController
   layout 'landing'
 
   def index
-    @articles = Article.pusblish_articles(current_user).limit(8)
+    @articles = Article.pusblish_articles.limit(8)
   end
 end

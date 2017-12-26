@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @articles = Article.pusblish_articles(current_user)
+    @articles = Article.pusblish_articles
   end
 
   def my_articles
