@@ -54,6 +54,10 @@ class Article < ApplicationRecord
     (5 - images_number).times { self.article_images.build }
   end
 
+  def user_email
+    user.email
+  end
+
   private
 
   def default_values

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'users/registrations', confirmations: 'users/confirmations' }
   resources :articles do
-    collection do
-      post :destroy_images
+    member do
+      post :contact
     end
   end
 

@@ -1,0 +1,15 @@
+<p>Hola <%= @user.email %>!</p>
+
+<p>Alguien te ha contactado  en llevatelo.co y esta interesado por el producto que publicaste </p>
+
+<p>los datos del usuario son: </p>
+<br/>
+<p>email: <%= @user_interesed.email %> </p>
+<p>Teléfono: <%= @user_interesed.phone %> </p>
+
+
+<p>Saludos,</p>
+<p style="box-sizing: border-box; margin: 0;">
+  <%= link_to 'Llevatelo.co', root_url %>
+</p>
+<br style="box-sizing: border-box;">

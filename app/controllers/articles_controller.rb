@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_article, only:[:show, :edit, :contact, :update]
 
   def index
     @articles = Article.pusblish_articles
@@ -12,7 +13,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
@@ -35,14 +35,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
     @article.total_images
     render :form
   end
 
   def update
-    @article = Article.find(params[:id])
-
     if @article.update(article_params)
       flash[:notice] = "Se ha modificado el  articulo #{@article.name}"
       redirect_to my_articles_path
@@ -64,8 +61,13 @@ class ArticlesController < ApplicationController
     redirect_to my_articles_path
   end
 
-  def destroy_images
+  def contact
+    ArticlesMailer.contact(@article, current_user).deliver_now
+    respond_to do |format|
+      format.js {  flash[:notice] = "Se ha enviado un email" }
+    end
   end
+
 
   private
   def article_params
@@ -73,5 +75,9 @@ class ArticlesController < ApplicationController
       :name, :offer_type, :description, :status, :photo, :location,
       article_images_attributes:[:id, :image_file_name, :_destroy]
     )
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 end
