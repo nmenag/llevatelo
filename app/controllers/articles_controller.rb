@@ -63,9 +63,6 @@ class ArticlesController < ApplicationController
 
   def contact
     ArticlesMailer.contact(@article, current_user).deliver_now
-    respond_to do |format|
-      format.js {  flash[:notice] = "Se ha enviado un email" }
-    end
   end
 
 

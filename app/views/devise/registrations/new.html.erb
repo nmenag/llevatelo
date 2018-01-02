@@ -35,6 +35,15 @@
                 <div class="form-group">
                   <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña"  %>
                 </div>
+
+
+                <div class="form-group">
+                  Al hacer clic en "Registrarse", aceptas haber leído nuestros
+                  <%= link_to 'Términos y Condiciones','#', data:{toggle: "modal", target: "#imagemodal" } %>
+                  y
+                  <%= link_to 'Politica de uso','#', data:{toggle: "modal", target: "#policesmodal" } %>
+                </div>
+
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
@@ -51,3 +60,6 @@
   	</div>
   </div>
 </div>
+
+<%= render 'shared/polices' %>
+<%= render 'articles/shared/preview_modal' %>
