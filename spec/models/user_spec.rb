@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
   context 'db' do
     context 'columns' do
       it { should have_db_column(:name).of_type(:string) }
-      it { should have_db_column(:email).of_type(:string).with_options(default: "") }
+      it { should have_db_column(:email).of_type(:string).with_options(default: "", null: true) }
       it { should have_db_column(:encrypted_password).of_type(:string).with_options(default: "", null: false) }
       it { should have_db_column(:reset_password_token).of_type(:string) }
       it { should have_db_column(:reset_password_sent_at).of_type(:datetime) }
@@ -71,6 +71,8 @@ RSpec.describe User, type: :model do
 
   context 'validations' do
     it { should validate_presence_of(:role) }
+    it { should validate_presence_of(:phone) }
+    it { should validate_presence_of(:email) }
     it { should define_enum_for(:role).with([:superadmin, :registered]) }
   end
 
@@ -85,31 +87,15 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'when is phone and email is empty' do
-    it 'has invalid factory' do
-      expect(build(:user, email: nil, phone: nil)).not_to be_valid
-    end
-  end
-
   describe 'when is email present' do
-    it 'has valid factory without phone' do
-      expect(build(:user, phone: nil)).to be_valid
-    end
-
     it 'has invalid factory without email format' do
-      expect(build(:user, phone: nil, email: 'example')).not_to be_valid
+      expect(build(:user, email: 'example')).not_to be_valid
     end
   end
 
   describe 'when is phone present' do
-    it 'has valid factory without email' do
-      expect(build(:user, email: nil)).to be_valid
-    end
-
     it 'has invalid factory' do
-      expect(build(:user, email: nil, phone: '1234')).not_to be_valid
+      expect(build(:user, phone: '1234')).not_to be_valid
     end
   end
-
-
 end

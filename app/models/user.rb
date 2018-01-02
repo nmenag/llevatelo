@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default("")
+#  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -17,7 +17,7 @@
 #  updated_at             :datetime         not null
 #  status                 :boolean          default(FALSE), not null
 #  role                   :integer          not null
-#  phone                  :string
+#  phone                  :string           not null
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
@@ -32,19 +32,18 @@
 #
 
 
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :trackable, :validatable,
-        :authentication_keys => [:login]
+        :recoverable, :rememberable, :trackable, :validatable
 
   has_many :articles, dependent: :destroy
   has_many :favorites
   has_many :favorite_articles, through: :favorites, source: :favorited, source_type: 'Article'
 
-  validates :role, presence: true
-  validate  :validate_login
+  validates :role, :email, :phone, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :email?
   validates :phone, length: { in: 7..20 }, numericality: { only_integer: true }, if: :phone?
 
@@ -54,29 +53,13 @@ class User < ApplicationRecord
 
   mount_uploader :picture, ImageArticleUploader
 
-  attr_accessor :login
-
   def can_add_favorite?(article)
     !articles.exists?(id: article.id)
-  end
-
-  def email_required?
-    false
-  end
-
-  def self.find_for_database_authentication warden_conditions
-    conditions = warden_conditions.dup
-    login = conditions.delete(:login)
-    where(conditions).where(["lower(phone) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
   end
 
   private
 
   def set_default_role
     self.role ||= :registered
-  end
-
-  def validate_login
-    errors.add(:base, :phone_or_email_blank) if self.email.blank? && self.phone.blank?
   end
 end
