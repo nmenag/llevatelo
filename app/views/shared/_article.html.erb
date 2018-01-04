@@ -1,0 +1,13 @@
+<div class="col-md-3 col-sm-6 hero-article">
+  <div class="thumbnail">
+    <h4 class="article-heading"><%= truncate(article.name, length: 25) %></h4>
+    <div class = "image-article" style="background-image: url(<%= display_image_article(article) %>);"></div>
+    <%= badge_offer_type_button(article.offer_type) %>
+    <div class="caption">
+      <p>
+        <a class="asset-link-location"><%= article.location %></a><br/>
+        <%= link_to 'Mas Info',article_path(article), class: 'btn btn-default' %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.footer__copyright {
+  background: $main-purple;
+  color: $gray-light;
+  padding: 20px 0;
+  font-size: 14px;
+  line-height: 28px;
+}
+.footer__copyright p {
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .footer__copyright p {
+    float: none !important;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+/*
+
+=====================
+COPYRIGHT
+=====================
+
+*/
+.copyright {
+  margin-top: 40px;
+  color: $gray;
+}
+.copyright p.credit {
+  text-align: right;
+}
+.copyright p.credit a {
+  color: $gray;
+}
+@media (max-width: 991px) {
+  .copyright p.credit {
+    text-align: center !important;
+  }
+}
+@media (min-width: 1200px) {
+  .copyright {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 991px) {
+  .copyright {
+    text-align: center !important;
+  }
+}

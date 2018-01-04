@@ -46,6 +46,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.2'
 gem 'carrierwave', '~> 1.0'
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,6 +76,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web', '~> 1.3'
+  gem 'better_errors', '~> 2.3'
+  gem 'binding_of_caller', '~> 0.7.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

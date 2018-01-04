@@ -37,7 +37,9 @@ class Article < ApplicationRecord
   enum offer_type: [:gift, :want, :barter]
   enum status: [:reserved, :available]
 
-  scope :pusblish_articles, -> (user) { where.not(user: user) }
+  default_scope { order(:updated_at) }
+
+  scope :pusblish_articles, -> { where(status: :available) }
 
   after_initialize :default_values
 
@@ -50,6 +52,10 @@ class Article < ApplicationRecord
   def total_images
     images_number = self.article_images.count
     (5 - images_number).times { self.article_images.build }
+  end
+
+  def user_email
+    user.email
   end
 
   private

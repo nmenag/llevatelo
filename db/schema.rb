@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170526021221) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: ""
+    t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170526021221) do
     t.datetime "updated_at",                             null: false
     t.boolean  "status",                 default: false, null: false
     t.integer  "role",                                   null: false
-    t.string   "phone"
+    t.string   "phone",                                  null: false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

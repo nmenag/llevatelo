@@ -1,11 +1,13 @@
 $(document).on('turbolinks:load', function() {
   $('#new_user, .edit_user').validate({
     rules: {
-      'user[login]': {
-        required: true
+      'user[email]': {
+        required: true,
+        email: true,
       },
-     'user[password]': 'required',
-     'user[password_confirmation]': {
+      'user[phone]': 'required',
+      'user[password]': 'required',
+      'user[password_confirmation]': {
         required: true,
         equalTo: "#user_password"
       }
@@ -14,7 +16,10 @@ $(document).on('turbolinks:load', function() {
       'user[password]': 'Ingresa tu contraseña',
       'user[password_confirmation]': {
         required: 'Por favor confirme la contraseña'
-      }
+      },
+      'user[email]': {
+        required: 'Ingresa un correo electrónico',
+      },
     },
   });
 
@@ -38,9 +43,9 @@ $(document).on('turbolinks:load', function() {
     rules: {
      'article[name]': 'required',
      'article[offer_type]': 'required',
-     'article[description]': 'required',
      'article[status]': 'required',
-     'article[location]': 'required'
+     'article[location]': 'required',
+     'status': 'required'
     }
   });
 });

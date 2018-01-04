@@ -1,0 +1,78 @@
+<div class="col-sm-6">
+  <!-- Slider -->
+  <% if @article.article_images.present? %>
+    <div class="row">
+      <div class="col-sm-3" id="slider-thumbs">
+        <!-- Bottom switcher of slider -->
+        <ul class="hide-bullets">
+          <% @article.article_images.each_with_index do |image, index| %>
+            <li class="col-sm-12">
+              <a class="thumbnail" id="carousel-selector-<%= index %>">
+                <%= image_tag image.image_file_name.url %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-sm-8">
+        <div class="col-xs-12" id="slider">
+          <!-- Top part of the slider -->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="carousel slide" id="myCarousel">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <% @article.article_images.each_with_index do |image, index| %>
+                    <div class="item" data-slide-number="<%= index %>">
+                      <%= image_tag image.image_file_name.url %>
+                    </div>
+                  <% end %>
+                </div>
+
+                <!-- Carousel nav -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/Slider-->
+    </div>
+  <% else %>
+    <%= image_tag 'cover.png', class: 'img-responsive' %>
+  <% end %>
+</div>
+
+<script>
+  $(function($) {
+    $('#myCarousel').carousel({
+      interval: 5000
+    });
+
+    $('#myCarousel').find('.item').first().addClass('active');
+
+    //Handles the carousel thumbnails
+    $('[id^=carousel-selector-]').click(function () {
+      var id_selector = $(this).attr("id");
+      try {
+        var id = /-(\d+)$/.exec(id_selector)[1];
+        console.log(id_selector, id);
+        $('#myCarousel').carousel(parseInt(id));
+      } catch (e) {
+        console.log('Regex failed!', e);
+      }
+    });
+    // When the carousel slides, auto update the text
+    $('#myCarousel').on('slid.bs.carousel', function (e) {
+      var id = $('.item.active').data('slide-number');
+      $('#carousel-text').html($('#slide-content-'+id).html());
+    });
+  });
+</script>

@@ -13,32 +13,41 @@
   					<div class="col-lg-12">
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <% devise_error_messages! %>
-								<h5>Para el registro es necesario especificar uno de los dos ya sea el correo electronico o el numero telefonico</h5>
+								<h5>Para registrarse en Llévatelo.co debe proporcionar una cuenta de correo electrónico o teléfono celular</h5>
 								<div class="form-group">
-                  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre completo" %>
+                  <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Nombre Completo" %>
                 </div>
                 <div class="form-group">
-                  <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo electronico" %>
+                  <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Correo Electrónico" %>
                 </div>
 
                 <div class="form-group">
-                  <%= f.text_field :phone, class: "form-control", placeholder: "Telefono" %>
+                  <%= f.text_field :phone, class: "form-control", placeholder: "Teléfono" %>
                 </div>
 
                 <div class="form-group">
                   <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Contraseña" %>
                   <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> caracteres minimo)</em>
+                    <em>(<%= @minimum_password_length %> caracteres Mínimo)</em>
                   <% end %>
                 </div>
 
                 <div class="form-group">
-                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar contraseña"  %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmar Contraseña"  %>
                 </div>
+
+
+                <div class="form-group">
+                  Al hacer clic en "Registrarse", aceptas haber leído nuestros
+                  <%= link_to 'Términos y Condiciones','#', data:{toggle: "modal", target: "#imagemodal" } %>
+                  y
+                  <%= link_to 'Politica de uso','#', data:{toggle: "modal", target: "#policesmodal" } %>
+                </div>
+
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      <%= f.submit "Registrarse", class: "form-control btn btn-info"  %>
+                      <%= f.submit "Registrarse", class: 'btn btn-primary btn-lg btn-block'  %>
                     </div>
                   </div>
                 </div>
@@ -51,3 +60,6 @@
   	</div>
   </div>
 </div>
+
+<%= render 'shared/polices' %>
+<%= render 'articles/shared/preview_modal' %>

@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
-  def index
+
+  def terms
+  end
+
+  def policies
   end
 end

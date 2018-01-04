@@ -1,63 +1,201 @@
-.articles {
-  padding-bottom: 50px;
+#all {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
-  .date-info{
+.image-article {
+  height: 174px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  background-size: cover;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.article-heading {
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  color: #999999;
+}
+
+.hero-article{
+  .btn-request, .btn-given, .btn-change {
+    margin-bottom: 0px;
+    padding:5px;
+  }
+}
+
+//articles show//
+.actions{
+  padding: 20px;
+}
+
+.sp-wrap{
+  float: none;
+}
+
+#productMain .jumbotron p{
+  font-size: 14px
+}
+
+#productMain .jumbotron{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+#productMain .sizes {
+  text-align: center;
+}
+#productMain .sizes h3 {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+#productMain .sizes a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #ccc;
+  line-height: 40px;
+  color: #555555;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+#productMain .sizes a.active,
+#productMain .sizes a:hover {
+  background: #38a7bb;
+  color: #fff;
+}
+#productMain .sizes input {
+  display: none;
+}
+#productMain .price {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* universal box */
+.box {
+  background: #fff;
+  margin: 0 0 30px;
+  border: solid 1px #ccc;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 0;
+  border-left: none;
+  border-right: none;
+}
+.box .box-header {
+  background: #f7f7f7;
+  margin: -20px 0 20px;
+  padding: 20px;
+  border-bottom: solid 1px #eeeeee;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.box .box-header:before,
+.box .box-header:after {
+  content: " ";
+  display: table;
+}
+.box .box-header:after {
+  clear: both;
+}
+.box .box-header:before,
+.box .box-header:after {
+  content: " ";
+  display: table;
+}
+.box .box-header:after {
+  clear: both;
+}
+.box .box-footer {
+  background: #f7f7f7;
+  margin: 30px 0 -20px;
+  padding: 20px;
+  border-top: solid 1px #eeeeee;
+}
+.box .box-footer:before,
+.box .box-footer:after {
+  content: " ";
+  display: table;
+}
+.box .box-footer:after {
+  clear: both;
+}
+.box .box-footer:before,
+.box .box-footer:after {
+  content: " ";
+  display: table;
+}
+.box .box-footer:after {
+  clear: both;
+}
+@media (max-width: 991px) {
+  .box .box-footer .btn {
+    margin-bottom: 20px;
+  }
+}
+.box.no-border {
+  border: none;
+}
+
+.accepted-terms {
+  label {
     font-size: 14px;
   }
+}
 
-  .contact-info {
-    background: $gray-lighter;
-    padding: 20px;
-    font-size: 18px
-  }
+/*****************************************************/
 
-  .caption-full {
-    padding: 20px;
-  }
+.js-image-preview {
+  height: 125px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: url("/images/cover.png");
+  background-color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  .time-ago {
-    margin-bottom: 20px;
-    color: $gray-light;
-  }
+.hide-bullets {
+  list-style:none;
+  margin-left: -40px;
+}
+
+#slider-thumbs{
   .thumbnail {
-    .display-images {
-      margin-top: 20px;
-    }
+    padding: 0px;
+    margin-bottom: 0px;
   }
 }
 
-.articles-listing {
-  border: solid 1px #eee;
-  border-bottom: none;
-  padding-top: 30px;
-  padding-bottom: 10px;
-  border-bottom: solid 1px #eee;
-  margin-bottom: 20px;
-  .img-responsive {
-    max-width: 85px;
-    max-height: 85px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-  }
-  .empty-article{
-    padding: 10px;
-  }
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  width: 100%;
+}
+#slider-thumbs {
+  height: 320px;
+  overflow-y: scroll;
+  white-space: nowrap;
 }
 
-.modal-header {
-  background: $gray-lighter;
+.color-red{
+  color: $main-red;
 }
 
-.article-form{
-  .add-articles {
-    clear:both;
-    .image-placeholder {
-      opacity: 0.5;
-      filter: alpha(opacity=50);
-    }
-
-    .actions{
-      padding-top: 5px;
-    }
-  }
+.asset-link-location {
+  text-decoration: none !important;
 }

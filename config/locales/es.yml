@@ -2,9 +2,9 @@ es:
   activerecord:
     attributes:
       user:
-        email: Correo electronico
+        email: Correo electrónico
         password: contraseña
-        remember_me: Recordame
+        remember_me: Recordarme
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"
@@ -131,7 +131,6 @@ es:
       not_a_number: no es un número
       not_an_integer: debe ser un entero
       odd: debe ser impar
-      phone_or_email_blank: 'El Correo electrónico o Teléfono no puede estar en blanco'
       required: debe existir
       taken: ya está en uso
       too_long:

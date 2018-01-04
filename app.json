@@ -48,12 +48,21 @@
     },
     "SECRET_KEY_BASE": {
       "required": true
+    },
+    "ROLLBAR_ACCESS_TOKEN":{
+      "required": true
+    },
+    "ROLLBAR_ENDPOINT":{
+      "required": true
     }
+
   },
   "formation": {
   },
   "addons": [
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "sendgrid",
+    "rollbar"
   ],
   "buildpacks": [
     {

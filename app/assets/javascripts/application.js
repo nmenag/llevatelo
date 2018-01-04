@@ -15,5 +15,11 @@
 //= require turbolinks
 //= require jquery.validate
 //= require nested_form_fields
-//= require smoothproducts
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $(".alert").alert();
+  window.setTimeout(function() { $(".alert").alert('close'); }, 5000);
+});

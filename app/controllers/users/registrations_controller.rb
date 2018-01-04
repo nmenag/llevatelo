@@ -63,7 +63,8 @@ before_action :configure_account_update_params, only: [:update]
     begin
       resource.update_without_password(params)
     rescue => e
-      flash[:error] = 'No se puede modificar el email'
+      byebug
+      flash[:error] = 'Error al actualizar la imagen'
     end
   end
 

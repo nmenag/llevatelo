@@ -1,0 +1,61 @@
+@media screen and (max-width: 640px){
+  h1 { font-size: 32px; }
+  h3 { font-size: 28px; }
+}
+
+@media (min-width: 768px) {
+
+  .text-intro {
+    margin-top: 90px;
+  }
+}
+
+body { padding-top: 0px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 40px; }
+}
+
+.text-intro {
+  background: asset-data-url('banner.jpg') center center repeat;
+  background-size: cover;
+  margin-bottom: 0;
+  position: relative;
+  .btn{
+    text-decoration: none;
+  }
+}
+
+.dark-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #46426f;
+  opacity: 0.9;
+}
+
+#intro {
+  padding-bottom: 90px;
+}
+
+.text-intro {
+  text-align: center;
+  color: #ffffff;
+}
+.text-intro h1 {
+  font-weight: 700;
+}
+.text-intro a {
+  color: #fff;
+  text-decoration: underline;
+}
+.text-intro h1,
+.text-intro h2,
+.text-intro h3,
+.text-intro h4 {
+  color: #ffffff;
+}
+.text-intro span {
+  color: #ff7473;
+}

@@ -1,0 +1,148 @@
+.header {
+  width: 100%;
+}
+
+ul.dropdown-menu li a {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  &:hover {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  font-weight: 700;
+  box-shadow: 0 1px 5px  $gray;
+}
+
+.navbar-inverse {
+  background-color: transparent;
+  border-color: $white;
+  .navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus{
+    background-color: transparent;
+    color: $main-blue;
+  }
+}
+
+.navbar-fixed-top {
+  background-color: $white;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: $main-blue;
+}
+
+.navbar-inverse .navbar-brand {
+  color: $main-blue;
+  font-family: Lobster;
+  font-size: 50px;
+}
+
+@media (min-width: 768px) {
+  .navbar-inverse .container-fluid {
+    height: 80px;
+  }
+
+  .navbar-brand, .navbar-nav li a {
+    line-height: 50px;
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $main-blue;
+}
+
+.nav > li.disabled > a {
+  color: $gray;
+}
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
+  color: $gray;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: $red-light;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: $gray;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: $red-light;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: $main-blue;
+}
+.navbar-default .navbar-collapse {
+  border-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .navbar ul.nav > li > a.link {
+    border-top: solid 5px transparent;
+    padding-top: 23px;
+  }
+  .navbar ul.nav > li > a.link:hover {
+    border-top-color: $main-red;
+  }
+  .navbar ul.nav > li.active > a.link,
+  .navbar ul.nav > li.open > a.link {
+    text-decoration: none !important;
+    border-top-color: $main-red;
+  }
+
+  .navbar ul.nav > li.active > a,
+  .navbar ul.nav > li.open > a {
+    text-decoration: none !important;
+    border-top-color: $main-red !important;
+  }
+
+  .navbar-nav .navbar-btn {
+    padding: 0px 15px 0px 15px;
+    margin-top: 25px;
+    margin-right: 5px;
+  }
+}
+
+.navbar-nav .btn-started {
+  color: $white !important;
+  background-color: $main-red;
+  border-color: $main-red;
+}
+
+.navbar-nav .btn-started:hover{
+  color: $main-red !important;
+}
+
+.navbar-nav .btn-sign-in {
+  color: $main-red !important;
+}
+
+.navbar-fixed-top .navbar-collapse,
+ .navbar-static-top .navbar-collapse,
+ .navbar-fixed-bottom .navbar-collapse {
+   padding-left: 0;
+   padding-right: 0;
+ }
