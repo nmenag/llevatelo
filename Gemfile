@@ -61,7 +61,7 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
-  gem 'capybara', '~> 2.7', '>= 2.7.1'
+  gem 'capybara', '~> 2.17'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist'
   gem "simplecov"
