@@ -1,15 +1,28 @@
 <p>Hola <%= @user.email %>!</p>
 
-<p>Alguien te ha contactado  en llevatelo.co y esta interesado por el producto que publicaste </p>
+<p>Alguien esta interesado en el articulo <b><%= @article.name %></b> que publicaste en Llevatelo.co
+  y quiere contactarse contigo, a continuación se mostraran los datos para que le confirmes
+  la disponibilidad de la publicación.
+</p>
 
-<p>los datos del usuario son: </p>
+<p>Datos del usuario: </p>
+
+<b>
+  <% if @user_interesed.name.present? %>
+    <p>Name: <%= @user_interesed.name %></p>
+  <% end %>
+
+  <p>email: <%= @user_interesed.email %> </p>
+  <p>Teléfono: <%= @user_interesed.phone %> </p>
+</b>
+
+
+
+<h3>Llevatelo.co es solo un sitio para hacer publicaciones y no participa en ninguna transacción entre las partes</h3>
 <br/>
-<p>email: <%= @user_interesed.email %> </p>
-<p>Teléfono: <%= @user_interesed.phone %> </p>
-
-
 <p>Saludos,</p>
 <p style="box-sizing: border-box; margin: 0;">
   <%= link_to 'Llevatelo.co', root_url %>
 </p>
 <br style="box-sizing: border-box;">
+

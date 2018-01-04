@@ -23,7 +23,14 @@
             <% if editable %>
               <td align="center" style='width: 10%;'>
                 <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_article_path(article), class: 'btn btn-default' %>
-                <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),  data: { confirm: 'Esta seguro?' }, method: :delete, class: 'btn btn-danger' %>
+                <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, article_path(article),
+                 data: {
+                    confirm: '¿Esta seguro?',
+                    'confirm-button-text': 'Si',
+                    'cancel-button-text': 'Cancelar'
+                  },
+                  method: :delete, class: 'btn btn-danger'
+                 %>
               </td>
             <% end %>
           </tr>
