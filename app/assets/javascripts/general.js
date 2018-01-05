@@ -1,14 +1,5 @@
 $(document).on('turbolinks:load', function() {
   scrollTo();
-
-  window.sweetAlertConfirmConfig = {
-    title: 'Are you sure?',
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#DD6B55',
-    confirmButtonText: 'Ok'
-  };
-
 });
 
 function scrollTo(){
