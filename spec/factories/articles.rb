@@ -20,10 +20,9 @@
 #
 # Foreign Keys
 #
-#  fk_rails_3d31dad1cc  (user_id => users.id)
-#  fk_rails_af09d53ead  (category_id => categories.id)
+#  fk_rails_...  (category_id => categories.id)
+#  fk_rails_...  (user_id => users.id)
 #
-
 
 FactoryGirl.define do
   factory :article do

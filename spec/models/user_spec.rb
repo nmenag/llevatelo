@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default("")
+#  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -17,7 +17,7 @@
 #  updated_at             :datetime         not null
 #  status                 :boolean          default(FALSE), not null
 #  role                   :integer          not null
-#  phone                  :string
+#  phone                  :string           not null
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
@@ -30,7 +30,6 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-
 
 require 'rails_helper'
 

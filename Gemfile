@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby "2.3.1"
-gem 'rails', '~> 5.0.1'
+ruby "2.5.0"
+gem 'rails', '~> 5.1', '>= 5.1.4'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -53,7 +53,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
-  gem 'factory_girl_rails', '~> 4.7'
+  gem 'factory_bot', '~> 4.8', '>= 4.8.2'
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'annotate', '~> 2.7', '>= 2.7.1'
 end
