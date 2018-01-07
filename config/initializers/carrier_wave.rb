@@ -1,4 +1,4 @@
-unless Rails.env.test?
+if !Rails.env.development? && !Rails.env.test?
   CarrierWave.configure do |config|
     config.fog_provider = 'fog/aws'
     config.root = Rails.root.join('tmp')

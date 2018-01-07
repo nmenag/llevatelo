@@ -16,9 +16,8 @@
 #
 # Foreign Keys
 #
-#  fk_rails_d15744e438  (user_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
-
 
 FactoryGirl.define do
   factory :favorite do

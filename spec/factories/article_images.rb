@@ -14,9 +14,8 @@
 #
 # Foreign Keys
 #
-#  fk_rails_95824e00d3  (article_id => articles.id)
+#  fk_rails_...  (article_id => articles.id)
 #
-
 
 FactoryGirl.define do
   factory :article_image do
