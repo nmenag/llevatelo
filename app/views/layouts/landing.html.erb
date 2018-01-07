@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Llevatelo</title>
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'landing/landing', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,7 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="width=device-width, initial-scale=1">
     <meta name="description" content="¡Un sitio donde puedes pedir lo que necesites, regalar lo que no utilices o simplemete intercambia cosas que no uses!">
-   <meta name="keywords" content="regalo, cambio, trueque, necesito">
+    <meta name="keywords" content="regalo, cambio, trueque, necesito">
+
+    <%= render 'shared/google_tag' %>
   </head>
 
   <body>
