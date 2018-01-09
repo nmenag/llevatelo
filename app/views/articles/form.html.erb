@@ -44,7 +44,7 @@
         <% if @article.new_record? %>
           <div class="form-group accepted-terms">
             <%= radio_button_tag :status, false %>
-            Estoy seguro que mi articulo publicado cumple con los <%= link_to 'Términos y Condiciones de llevatelo.co','#', data:{toggle: "modal", target: "#imagemodal" } %>
+            Estoy seguro que mi articulo publicado cumple con los <%= link_to 'Términos y Condiciones de llevatelo.co','#', data:{toggle: "modal", target: "#termsModal" } %>
             <br/>
             <label id="status-error" class="error" for="status"></label>
           </div>
@@ -58,4 +58,5 @@
   <% end %>
 </div>
 
-<%= render 'articles/shared/preview_modal' %>
+<%= render 'articles/shared/preview_image_modal' %>
+<%= render 'shared/terms_modal' %>
