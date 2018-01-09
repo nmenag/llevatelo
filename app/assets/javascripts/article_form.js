@@ -37,13 +37,24 @@ function readURL(input, placeImg) {
 }
 
 function RemoveAndAddImage(){
-  $('.destroy-article').on('confirm:complete', function(e, response) {
-    if(response) {
-      $(this).parent().find('.remove_nested_fields_link').click();
-      $('.add_nested_fields_link').click();
-      $(".article-form .img-responsive").css('height', '69px');
-    }
-
-    return false;
+  $(document).on('click', '.destroy-article', function(e){
+    var element = $(this);
+    e.preventDefault();
+    swal({
+        title: "¿Esta seguro?", 
+        text: "¿Esta seguro que lo quieres eliminar esta imagen?", 
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        confirmButtonText: "Eliminar",
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: "#ec6c62"
+      }).then(function(result) {
+        element.parent().find('.remove_nested_fields_link').click();
+        $('.add_nested_fields_link').click();
+        $(".article-form .img-responsive").css('height', '69px');
+      }, function(dismiss) {
+        // dismiss can be "cancel" | "close" | "outside"
+      }); 
   });
 }
