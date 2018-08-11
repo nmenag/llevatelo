@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby "2.5.0"
-gem 'rails', '~> 5.1', '>= 5.1.4'
+ruby "2.5.1"
+gem 'rails', '~> 5.2', '>= 5.2.1'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
