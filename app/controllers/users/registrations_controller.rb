@@ -63,7 +63,6 @@ before_action :configure_account_update_params, only: [:update]
     begin
       resource.update_without_password(params)
     rescue => e
-      byebug
       flash[:error] = 'Error al actualizar la imagen'
     end
   end
