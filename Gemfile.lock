@@ -314,8 +314,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5, >= 1.5.3)
   devise (~> 4.2)
-  factory_bot (~> 4.8, >= 4.8.2)
-  faker (~> 1.6, >= 1.6.6)
+  factory_bot (~> 4.11)
+  faker (~> 1.9, >= 1.9.1)
   figaro (~> 1.1, >= 1.1.1)
   fog-aws
   font-awesome-sass (~> 4.7.0)
