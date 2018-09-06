@@ -9,7 +9,7 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-md-3 col-lg-3 " align="center">
-              <%= image_tag  current_user.picture, class: 'img-circle img-responsive' %>
+              <%= image_tag  current_user.picture.url, class: 'img-circle img-responsive' %>
               <%= link_to 'Cambiar imagen','#', data: { toggle: 'modal', target: '#changePictureModal' } %>
             </div>
             <div class=" col-md-9 col-lg-9 ">
