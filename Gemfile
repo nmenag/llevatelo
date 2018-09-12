@@ -12,6 +12,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'newrelic_rpm'
+gem 'bootsnap', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.2.0'

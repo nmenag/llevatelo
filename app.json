@@ -62,7 +62,8 @@
   "addons": [
     "heroku-postgresql",
     "sendgrid",
-    "rollbar"
+    "rollbar",
+    "rediscloud"
   ],
   "buildpacks": [
     {
