@@ -1,5 +1,6 @@
 {
   "name": "llevatelo",
+  "stack": "heroku-18",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
   },
