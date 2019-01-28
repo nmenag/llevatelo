@@ -45,7 +45,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.5'
 gem 'carrierwave', '~> 1.0'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
@@ -54,7 +54,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
-  gem 'factory_bot', '~> 4.11'
+  gem "factory_bot_rails"
   gem 'faker', '~> 1.9', '>= 1.9.1'
   gem 'annotate', '~> 2.7', '>= 2.7.1'
 end
@@ -62,7 +62,7 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
-  gem 'capybara', '~> 2.17'
+  gem 'capybara', '~> 3.13', '>= 3.13.2'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'poltergeist'
   gem "simplecov"
