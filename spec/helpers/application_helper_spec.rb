@@ -5,7 +5,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     it "should return a array" do
       method = helper.generate_list(Article.offer_types)
       expect(method.class).to eq Array
-      expect(method).to eq [["Regalo", "gift"], ["Necesito", "want"], ["Trueque", "barter"]]
+      expect(method).to eq [["Regalo", "gift"], ["Trueque", "barter"]]
     end
   end
 end

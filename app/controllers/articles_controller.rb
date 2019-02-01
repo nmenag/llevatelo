@@ -8,7 +8,6 @@ class ArticlesController < ApplicationController
 
   def my_articles
     @gifts = current_user.articles.find_all { |a| a.gift? }
-    @wants = current_user.articles.find_all { |a| a.want? }
     @barters = current_user.articles.find_all { |a| a.barter? }
   end
 
