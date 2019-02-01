@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def badge_offer_type_button(offer_type)
-    hash_class = {gift: 'given', want: 'request', barter: 'change' }
+    hash_class = {gift: 'given', barter: 'change' }
     content_tag(:figure, class: "btn-border btn-#{hash_class[offer_type.to_sym]}") do
       concat text_location(offer_type)
     end

@@ -44,7 +44,7 @@ class User < ApplicationRecord
   has_many :favorite_articles, through: :favorites, source: :favorited, source_type: 'Article'
 
   validates :role, :email, :phone, presence: true
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :email?
+  validates :email, format: { with: Devise::email_regexp }, if: :email?
   validates :phone, length: { in: 7..20 }, numericality: { only_integer: true }, if: :phone?
 
   enum role: [:superadmin, :registered]

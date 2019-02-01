@@ -8,9 +8,7 @@ RSpec.feature "SignUp", type: :feature do
       expect(page).to have_css('.panel-login')
       expect(page).to have_css('.panel-heading')
       expect(page).to have_css('.panel-heading h3', text: "Registro")
-      expect(page).to have_css('.new_user')
-      expect(page).to have_css('.form-group', count: 6)
-      expect(page).to have_css('.btn-info')
+      expect(page).to have_css('.form-group', count: 7)
     end
 
     expect(page).to have_css('.panel-body a', text: 'Iniciar Sesión')
@@ -19,26 +17,26 @@ RSpec.feature "SignUp", type: :feature do
 
   scenario 'should display sign in form' do
     visit new_user_registration_path
-    all('.panel-body a')[0].click
+    click_link 'Iniciar Sesión'
     expect(current_path).to eq new_user_session_path
   end
 
   scenario 'should display reset password form' do
     visit new_user_registration_path
-    all('.panel-body a')[1].click
+    click_link 'Olvidaste la contraseña'
     expect(current_path).to eq new_user_password_path
   end
 
-  context 'register user', js: true do
+  context 'register user' do
     scenario 'with valid input' do
       user = build(:user)
       password = Faker::Internet.password
 
-      expect{
+      expect {
         form_register(
           email: user.email,
           phone: user.phone,
-          password:password,
+          password: password,
           password_confirmation: password
         )
       }.to change(User, :count).by 1
@@ -46,7 +44,7 @@ RSpec.feature "SignUp", type: :feature do
       last_user = User.last
       expect(last_user.email).to eq user.email
       expect(last_user.phone).to eq user.phone
-      expect(current_path).to eq root_path
+      expect(current_path).to eq articles_path
     end
 
     scenario 'when the user exist' do
@@ -59,16 +57,16 @@ RSpec.feature "SignUp", type: :feature do
         password:password,
         password_confirmation: password
       )
-      expect(page).to have_css('.alert-danger', text: 'Correo electronico ya está en uso')
+      expect(page).to have_css('.alert-danger', text: 'Correo electrónico ya está en uso')
     end
 
-    scenario 'when password and password confirmation is empty' do
+    scenario 'when password and password confirmation is empty', js: true do
       form_register
       expect(page).to have_css('#user_password-error')
       expect(page).to have_css('#user_password_confirmation-error')
     end
 
-    scenario 'when the email and the phone is empty' do
+    scenario 'when the email and the phone is empty', js: true do
       password = Faker::Internet.password
 
       form_register(
@@ -76,7 +74,8 @@ RSpec.feature "SignUp", type: :feature do
         password_confirmation: password
       )
 
-      expect(page).to have_css('.alert-danger', text: 'El Correo electrónico o Teléfono no puede estar en blanco')
+      expect(page).to have_css('#user_email-error')
+      expect(page).to have_css('#user_phone-error')
     end
   end
 end

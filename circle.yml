@@ -1,4 +1,34 @@
-## Customize CircleCI setup
+version: 2
 machine:
   environment:
     CODECLIMATE_REPO_TOKEN: 6811687d58a8121162038a260002a46ae1837a8e2dbe5aa5103c32196568aa34
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-stretch-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: llevatelo_user
+      - image: circleci/postgres:10.6-alpine
+        environment:
+          POSTGRES_USER: llevatelo_user
+          POSTGRES_DB: llevatelo_test
+      - image: redis:3.2
+    steps:
+      - checkout
+      # Restore bundle cache
+      - type: cache-restore
+        key: project-name-{{ checksum "Gemfile.lock" }}
+      - run: sudo apt-get update
+      - run: sudo apt-get install qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+      - run: sudo apt-get install phantomjs
+      - run: bundle install --path vendor/bundle
+      - run: sudo apt install postgresql-client
+      # Store bundle cache
+      - type: cache-save
+        key: project-name-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - run: bin/rails db:schema:load --trace
+      - run: bundle exec rspec spec --format progress

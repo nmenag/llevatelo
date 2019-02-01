@@ -11,7 +11,6 @@ RSpec.feature "SignIn", type: :feature do
       expect(page).to have_css('.panel-heading h4', text: "Ingresar")
       expect(page).to have_css('.new_user')
       expect(page).to have_css('.form-group', count: 3)
-      expect(page).to have_css('.btn-info')
     end
 
     expect(page).to have_css('.panel-body a', text: 'Registrarse')
@@ -48,7 +47,7 @@ RSpec.feature "SignIn", type: :feature do
     scenario 'access user registered' do
       login(user)
 
-      expect(current_path).to eq root_path
+      expect(current_path).to eq articles_path
 
       within :css, '.dropdown' do
         expect(page).to have_content 'Mi Perfil'
@@ -69,14 +68,14 @@ RSpec.feature "SignIn", type: :feature do
     scenario 'should destroy session' do
       login(user)
       click_link 'Salir'
-      expect(page).to have_selector '.sign-in'
+      expect(current_path).to eq root_path
     end
   end
 end
 
 def sign_in_form(opts={})
   visit new_user_session_path
-  fill_in 'user_login', with: opts[:login]
+  fill_in 'user_email', with: opts[:login]
   fill_in 'user_password', with: opts[:password]
-  click_button "Ingresar"
+  click_button 'Ingresar'
 end

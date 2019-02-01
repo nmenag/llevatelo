@@ -38,8 +38,8 @@ RSpec.describe User, type: :model do
   context 'db' do
     context 'columns' do
       it { should have_db_column(:name).of_type(:string) }
-      it { should have_db_column(:email).of_type(:string).with_options(default: "", null: true) }
-      it { should have_db_column(:encrypted_password).of_type(:string).with_options(default: "", null: false) }
+      it { should have_db_column(:email).of_type(:string).with_options(default:'', null: false) }
+      it { should have_db_column(:encrypted_password).of_type(:string).with_options(default: '', null: false) }
       it { should have_db_column(:reset_password_token).of_type(:string) }
       it { should have_db_column(:reset_password_sent_at).of_type(:datetime) }
       it { should have_db_column(:remember_created_at).of_type(:datetime) }

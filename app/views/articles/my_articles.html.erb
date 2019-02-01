@@ -12,18 +12,15 @@
               <div class="articles-tabs">
                 <ul class="nav nav-tabs">
               		<li class="active"><a  href="#1" data-toggle="tab">Regalo</a></li>
-              		<li><a href="#2" data-toggle="tab">Necesito</a></li>
-              		<li><a href="#3" data-toggle="tab">Cambios</a></li>
+              		<li><a href="#2" data-toggle="tab">Cambios</a></li>
                 </ul>
             		<div class="tab-content ">
             		  <div class="tab-pane active" id="1">
                     <%= render partial: 'articles/shared/article_table', locals: { articles: @gifts, editable: true } %>
             			</div>
-            			<div class="tab-pane" id="2">
-                    <%= render partial: 'articles/shared/article_table', locals: { articles: @wants, editable: true }  %>
-            			</div>
-                  <div class="tab-pane" id="3">
-                    <%= render  partial: 'articles/shared/article_table', locals: { articles: @barters, editable: true }  %>
+
+                  <div class="tab-pane" id="2">
+                    <%= render  partial: 'articles/shared/article_table', locals: { articles: @trades, editable: true }  %>
             			</div>
             		</div>
               </div>

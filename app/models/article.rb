@@ -33,7 +33,7 @@ class Article < ApplicationRecord
   validates :name, :description, :offer_type, :location, :user, presence: true
   validates_length_of :name, maximum: 100
 
-  enum offer_type: [:gift, :want, :barter]
+  enum offer_type: [:gift, :barter]
   enum status: [:reserved, :available]
 
   default_scope { order(:updated_at) }
