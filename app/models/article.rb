@@ -34,9 +34,7 @@ class Article < ApplicationRecord
   validates_length_of :name, maximum: 100
 
   enum offer_type: [:gift, :barter]
-  enum status: [:reserved, :available]
-
-  default_scope { order(:updated_at) }
+  enum status: [:reserved, :available, :disabled]
 
   scope :pusblish_articles, -> { where(status: :available) }
 
