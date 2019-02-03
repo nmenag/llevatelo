@@ -18,6 +18,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.7.0'
+gem 'social-share-button'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem "fog-aws"
 gem 'carmen-rails', '~> 1.0.0' #for the all city

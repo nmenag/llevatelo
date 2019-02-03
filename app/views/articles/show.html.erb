@@ -58,10 +58,20 @@
         <div class="social" id="product-social">
           <h4>Compartir</h4>
           <p>
-            <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="external gplus" data-animate-hover="pulse" style="opacity: 1;"><i class="fa fa-google-plus"></i></a>
-            <a href="#" class="external twitter" data-animate-hover="pulse" style="opacity: 1;"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= article_url(@article) %>"
+            class="share facebook" data-network="facebook" data-animate-hover="pulse" style="opacity: 1;">
+              <i class="fa fa-facebook"></i>
+            </a>
+
+            <a href="https://twitter.com/share?url=<%= article_url(@article) %>"
+              class="share twitter" data-network="twitter" data-animate-hover="pulse" style="opacity: 1;">
+              <i class="fa fa-twitter"></i>
+            </a>
+
+             <a href="https://wa.me/?text=<%= article_url(@article) %>"
+              class="share whatsapp" data-network="whatsapp" data-animate-hover="pulse" style="opacity: 1;">
+              <i class="fa fa-whatsapp"></i>
+            </a>
           </p>
         </div>
       </div>
@@ -69,3 +79,26 @@
   </div>
 </section>
 <!-- end section -->
+
+
+<script>
+  $('a.share').click(function(e){
+    e.preventDefault();
+    var $link   = $(this);
+    var href    = $link.attr('href');
+    var network = $link.attr('data-network');
+
+    var networks = {
+        facebook : { width : 600, height : 300 },
+        twitter  : { width : 600, height : 254 },
+        whatsapp : { width : 515, height : 490 },
+    };
+
+    var popup = function(network){
+        var options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,';
+        window.open(href, '', options+'height='+networks[network].height+',width='+networks[network].width);
+    }
+
+    popup(network);
+});
+</script>
