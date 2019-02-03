@@ -57,6 +57,14 @@
         </div>
         <div class="social" id="product-social">
           <h4>Compartir</h4>
+
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= article_url(@article) %>" target="_blank">
+              Share on Facebook
+            </a>
+
+
+
+          <%= social_share_button_tag(@article.name, url: article_url(@article), desc: @article.description) %>
           <p>
             <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
             <a href="#" class="external gplus" data-animate-hover="pulse" style="opacity: 1;"><i class="fa fa-google-plus"></i></a>

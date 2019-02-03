@@ -17,6 +17,7 @@
 //= require nested_form_fields
 //= require sweetalert2
 //= require sweet-alert2-rails
+//= require social-share-button
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
