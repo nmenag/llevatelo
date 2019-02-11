@@ -1,7 +1,9 @@
 <!-- app/views/offers/show.html.erb -->
-<% content_for :meta_title, "#{@article.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_title, "#{@article.name} en #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @article.description %>
-<% content_for :meta_image, @article.image_main_url %>
+<% if @article.image_main.present? %>
+  <% content_for :meta_image, @article.image_main_url %>
+<% end %>
 
 <section class="section">
   <div class="container">

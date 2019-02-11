@@ -52,7 +52,7 @@ class Article < ApplicationRecord
   end
 
   def image_main_url
-    image_main.image_file_name.url
+    image_main&.image_file_name&.url
   end
 
   def total_images
