@@ -12,10 +12,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
+#  slug        :string
 #
 # Indexes
 #
 #  index_articles_on_category_id  (category_id)
+#  index_articles_on_slug         (slug) UNIQUE
 #  index_articles_on_user_id      (user_id)
 #
 # Foreign Keys
@@ -25,6 +27,9 @@
 #
 
 class Article < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   belongs_to :user
   belongs_to :category, optional: true
   has_many :favorites, as: :favorited, dependent: :destroy
