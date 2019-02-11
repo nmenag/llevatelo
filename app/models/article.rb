@@ -51,6 +51,10 @@ class Article < ApplicationRecord
     article_images&.first
   end
 
+  def image_main_url
+    image_main.image_file_name.url
+  end
+
   def total_images
     images_number = self.article_images.count
     (5 - images_number).times { self.article_images.build }
