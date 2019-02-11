@@ -1,3 +1,10 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@article.name} en #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @article.description %>
+<% if @article.image_main.present? %>
+  <% content_for :meta_image, @article.image_main_url %>
+<% end %>
+
 <section class="section">
   <div class="container">
     <div class="row">
@@ -22,7 +29,7 @@
               <% unless @article.user == current_user %>
                 <div class="text-center actions">
                   <% if user_signed_in? %>
-                    <%= link_to '<i class="fa fa-address-book-o"></i> Contactar'.html_safe,contact_article_path(@article),remote: true, method: :post, data: {
+                    <%= link_to '<i class="fa fa-address-book-o"></i> Contactar'.html_safe, contact_article_path(@article),remote: true, method: :post, data: {
                       confirm: '¿Esta seguro que lo quieres contactar?',
                         'confirm-button-color': '#ff7473',
                         'confirm-button-text': '¡Si, estoy seguro!',

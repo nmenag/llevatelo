@@ -1,0 +1,5 @@
+meta_product_name: "Llevatelo"
+meta_title: "Llevatelo - regalo, cambio, trueque, necesito"
+meta_description: "¡Un sitio donde puedes pedir lo que necesites, regalar lo que no utilices o simplemete intercambia cosas que no uses!"
+meta_image: "banner.jpg" # should exist in `app/assets/images/`
+twitter_account: "@llevatelo"   # required for Twitter Cards

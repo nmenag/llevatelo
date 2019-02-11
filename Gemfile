@@ -22,6 +22,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem "fog-aws"
 gem 'carmen-rails', '~> 1.0.0' #for the all city
 gem 'nested_form_fields', '~> 0.8'
+gem 'friendly_id', '~> 5.2.4'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
