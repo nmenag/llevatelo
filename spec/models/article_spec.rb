@@ -57,7 +57,7 @@ RSpec.describe Article, type: :model do
     it { should validate_presence_of(:location) }
     it { should validate_presence_of(:offer_type) }
     it { should define_enum_for(:offer_type).with([:gift, :barter]) }
-    it { should define_enum_for(:status).with([:reserved, :available]) }
+    it { should define_enum_for(:status).with([:reserved, :available, :disabled]) }
     it { should validate_presence_of(:user) }
   end
 
